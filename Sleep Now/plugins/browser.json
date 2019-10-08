@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "br.com.sleepnow.app"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "br.com.sleepnow.app"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "br.com.sleepnow.app"
+        }
+    },
+    "dependent_plugins": {}
+}
