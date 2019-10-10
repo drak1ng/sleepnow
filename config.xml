@@ -7,9 +7,11 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Sleep Now
     </author>
-    
+
     <content src="index.html" />
     <access origin="*" />
+    <allow-navigation href="*" />
+	<allow-intent href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -20,11 +22,13 @@
     <platform name="android">
         <preference name="android-minSdkVersion" value="19" />
         <allow-intent href="market:*" />
+        <allow-intent href="maps:*" />
     </platform>
     
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <allow-intent href="maps:*" />
         <preference name="BackupWebStorage" value="none" />
     </platform>
     
