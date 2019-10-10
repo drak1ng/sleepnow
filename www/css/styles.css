@@ -25,3 +25,53 @@
 .text-color-white {
     color:#FFF;
 }
+
+.panel {
+    background: #7cdcfb;
+}
+
+.lateral-usuario {
+    padding:0px 0px 20px 10px;
+}
+
+.lateral-usuario-imagem {
+    width: 50px;
+    height: 50px;
+    float: left;
+    border-radius: 40px;
+    background: #000;
+}
+
+.lateral-usuario-info {
+    margin-left:60px;
+}
+
+.lateral-usuario-info-nome {
+    font-weight:bold;
+    font-size:16px;
+    color:#000;
+    padding-top:4px;
+}
+
+.lateral-usuario-info-email {
+    color:#000;
+}
+
+.lateral-links {
+    font-size:17px;
+    padding-top:40px;
+}
+
+.lateral-links-item {
+    color:#000;
+    padding: 15px 0px;
+    border-top:1px solid #FFF;
+    border-color:rgba(255,255,255,0.3);
+}
+
+.lateral-links-item i {
+    display:inline-block;
+    width:26px;
+    text-align:center;
+    font-size:20px;
+}
