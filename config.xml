@@ -46,7 +46,7 @@
         <preference name="BackupWebStorage" value="none" />
     </platform>
     
-    <preference name="phonegap-version" value="cli-7.1.0" />
+    
     <preference name="DisallowOverscroll" value="true" />
 
     <platform name="android">
