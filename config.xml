@@ -15,6 +15,8 @@
     <plugin name="cordova-plugin-facebook4">
 	    <param name="APP_ID" value="385435218538992" />
 	    <param name="APP_NAME" value="Sleep Now" />
+        <param name="FACEBOOK_HYBRID_APP_EVENTS" default="false" />
+        <param name="FACEBOOK_ANDROID_SDK_VERSION" default="5.5.2"/>
     </plugin>
 
 
