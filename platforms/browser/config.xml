@@ -7,10 +7,10 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Sleep Now
     </author>
-    <preference name="776387162818475" />
-    <preference name="Sleep Now" />
-    <preference default="false" name="FACEBOOK_HYBRID_APP_EVENTS" />
-    <preference default="5.5.2" name="FACEBOOK_ANDROID_SDK_VERSION" />
+    <gap:plugin name="cordova-plugin-facebook" source="npm">
+        <param name="FACEBOOK_APP_ID" value="385435218538992" />
+        <param name="FACEBOOK_DISPLAY_NAME" value="Sleep Now" />
+    </gap:plugin>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />

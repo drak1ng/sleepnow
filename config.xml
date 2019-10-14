@@ -12,13 +12,11 @@
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
 
-    <plugin name="cordova-plugin-facebook4" spec="~6.2.0" />
+    <gap:plugin name="cordova-plugin-facebook" source="npm">
+	    <param name="FACEBOOK_APP_ID" value="385435218538992" />
+	    <param name="FACEBOOK_DISPLAY_NAME" value="Sleep Now" />
+    </gap:plugin>
 
-    <preference name="776387162818475" />
-    <preference name="Sleep Now" />
-    <preference name="FACEBOOK_HYBRID_APP_EVENTS" default="false" />
-    <preference name="FACEBOOK_ANDROID_SDK_VERSION" default="5.5.2"/>
-    
 
 	<feature name="http://api.phonegap.com/1.0/network" />
 	<feature name="http://api.phonegap.com/1.0/camera" />

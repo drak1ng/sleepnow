@@ -57,24 +57,57 @@ $$(document).on('pageInit', function (e) {
 
     // Script Tela - Login Manual
     if(page.name=="login"){
-        var fbLoginSuccess = function (userData) {
-            console.log("UserInfo: ", userData);
-            facebookConnectPlugin.getLoginStatus(function onLoginStatus (status) {
-              console.log("current status: ", status);
-              facebookConnectPlugin.showDialog({
-                method: "share"
-              }, function onShareSuccess (result) {
-                console.log("Posted. ", result);
-              });
-            });
-          };
 
         $$('.login-bt-google').on('click', function (e) {
             window.localStorage.setItem('id_usuarios','1');
             mainView.router.loadPage("index.html");
         });
         $$('.login-bt-facebook').on('click', function (e) {
-            facebookConnectPlugin.login(["public_profile"], fbLoginSuccess, function(error){ console.error(error); });
+            CordovaFacebook.login({
+                permissions: ['public_profile','email'],
+                onSuccess: function(result) {
+                   if(result.declined.length > 0) {
+                    app.alert("Não foi possível autenticar pelo Facebook!");
+                   }else{
+                     
+                     $.get("https://graph.facebook.com/v2.10/me", { access_token: result.accessToken, fields: "name,first_name,last_name,gender,picture,email", format: "json" } ).then(function(result) {
+                         
+                        $$.post('http://capsulas4u.com.br/app_api/login-cadastro.php', { nome:result.first_name, celular:'', email:result.email, senha:result.id, imagem:result.picture.data.url }, function (data) {
+                            console.log(data);
+            
+                            if(data=="ERRO1"){
+                                app.alert("Esse e-mail já foi utilizado em outro cadastro!","Aviso");
+                                return false;
+                            }
+            
+                            var retorno = data.split("#|#");
+            
+                            window.localStorage.setItem('app_usuario_id',retorno[0]);
+                            window.localStorage.setItem('app_usuario_nome',retorno[1]);
+                            window.localStorage.setItem('app_usuario_imagem',retorno[2]);
+                            window.localStorage.setItem('app_usuario_email',retorno[3]);
+            
+                            $$(".lateral-usuario-info-nome").html(retorno[1]);
+                            $$(".lateral-usuario-info-email").html(retorno[3]);
+            
+                            mainView.router.loadPage("index.html");
+            
+                        });
+                         
+                     }, function(error) {
+                        app.alert("Não foi possível autenticar pelo Facebook!");
+                     });
+                     
+                   }
+                },
+                onFailure: function(result) {
+                   if(result.cancelled) {
+                    app.alert("Não foi possível autenticar pelo Facebook!");
+                   } else if(result.error) {
+                    app.alert("Não foi possível autenticar pelo Facebook!");
+                   }
+                }
+             });
             //window.localStorage.setItem('id_usuarios','1');
             //mainView.router.loadPage("index.html");
         });
