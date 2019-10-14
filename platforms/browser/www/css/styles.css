@@ -16,7 +16,7 @@
 
 .navbar {
     background: #7cdcfb !important;
-    height:80px;
+    height:60px;
 }
 
 .navbar:after {
@@ -28,7 +28,7 @@
 }
 
 .panel {
-    background: #333;
+    background: #FFF;
 }
 
 .lateral-usuario {
@@ -40,7 +40,7 @@
     height: 50px;
     float: left;
     border-radius: 40px;
-    background: #FFF;
+    background: #000;
 }
 
 .lateral-usuario-info {
@@ -50,21 +50,21 @@
 .lateral-usuario-info-nome {
     font-weight:bold;
     font-size:16px;
-    color:#FFF;
+    color:#000;
     padding-top:4px;
 }
 
 .lateral-usuario-info-email {
-    color:#ccc;
+    color:#444;
 }
 
 .lateral-links {
-    font-size:17px;
+    font-size:13px;
     padding-top:40px;
 }
 
 .lateral-links-item {
-    color:#FFF;
+    color:#000;
     padding: 15px 0px;
     border-top:1px solid #FFF;
     border-color:rgba(255,255,255,0.1);
@@ -72,14 +72,14 @@
 
 .lateral-links-item i {
     display:inline-block;
-    width:26px;
+    width:36px;
     text-align:center;
-    font-size:20px;
+    font-size:16px;
 }
 
 
 .navbar-fixed .page-content, .navbar-through .page-content {
-    padding-top: 80px;
+    padding-top: 60px;
 }
 
 .toolbar {
