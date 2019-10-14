@@ -15,7 +15,8 @@
 }
 
 .navbar {
-    background: transparent !important;
+    background: #7cdcfb !important;
+    height:80px;
 }
 
 .navbar:after {
@@ -27,7 +28,7 @@
 }
 
 .panel {
-    background: #7cdcfb;
+    background: #333;
 }
 
 .lateral-usuario {
@@ -39,7 +40,7 @@
     height: 50px;
     float: left;
     border-radius: 40px;
-    background: #000;
+    background: #FFF;
 }
 
 .lateral-usuario-info {
@@ -49,12 +50,12 @@
 .lateral-usuario-info-nome {
     font-weight:bold;
     font-size:16px;
-    color:#000;
+    color:#FFF;
     padding-top:4px;
 }
 
 .lateral-usuario-info-email {
-    color:#000;
+    color:#ccc;
 }
 
 .lateral-links {
@@ -63,10 +64,10 @@
 }
 
 .lateral-links-item {
-    color:#000;
+    color:#FFF;
     padding: 15px 0px;
     border-top:1px solid #FFF;
-    border-color:rgba(255,255,255,0.3);
+    border-color:rgba(255,255,255,0.1);
 }
 
 .lateral-links-item i {
@@ -74,4 +75,67 @@
     width:26px;
     text-align:center;
     font-size:20px;
+}
+
+
+.navbar-fixed .page-content, .navbar-through .page-content {
+    padding-top: 80px;
+}
+
+.toolbar {
+    background:#ebebeb;
+    -webkit-box-shadow:inset 0 3px 5px 0 rgba(0,0,0,0.1);
+    box-shadow:inset 0 3px 5px 0 rgba(0,0,0,0.1);
+}
+
+.toolbar .slider-botton {
+    width: calc(100% - 50px);
+    height:36px;
+    float: left;
+    background: #7cdcfb !important;
+    border-radius: 5px;
+    margin:5px 0px 0px 5px;
+}
+
+.toolbar .slider-botton-icon {
+    width: 32px;
+    height: 32px;
+    float: left;
+    color:#FFF;
+    background: #000;
+    font-size:16px;
+    text-align:center;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.slider-botton-texto {
+    width: calc(100% - 36px);
+    height:36px;
+    float: left;
+    text-align: center;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    text-transform: uppercase;
+    font-size:14px;
+    font-weight: bold;
+}
+
+.toolbar .sidebar-botton{
+    width:36px;
+    height:36px;
+    float: right;
+    background:#FFF;
+    color:#000;
+    font-size:16px;
+    text-align:center;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    border-radius: 5px;
+    margin:5px 5px 0px 0px;
 }

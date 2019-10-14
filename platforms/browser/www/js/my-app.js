@@ -20,8 +20,15 @@ $$(document).on('deviceready', function() {
         mainView.router.loadPage("login.html");
     });
 
+    
+
     console.log("Device is ready!");
     console.log("Id user: "+id_usuarios);
+
+    $$('.sidebar-botton').on('click', function (e) {
+        console.log(app.openPanel);
+        app.openPanel('right');
+    });
 
     if(id_usuarios=="" || id_usuarios==null){
         mainView.router.loadPage("login.html");

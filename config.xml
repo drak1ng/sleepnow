@@ -79,4 +79,6 @@
         <icon src="res/ios/icon-1024x1024.png" width="1024" height="1024" />
     </platform>
 
+    <splash src="res/screen/splash.png" />
+
 </widget>
