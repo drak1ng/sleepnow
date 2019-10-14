@@ -7,10 +7,6 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Sleep Now
     </author>
-    <gap:plugin name="cordova-plugin-facebook" source="npm">
-        <param name="FACEBOOK_APP_ID" value="385435218538992" />
-        <param name="FACEBOOK_DISPLAY_NAME" value="Sleep Now" />
-    </gap:plugin>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />

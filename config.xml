@@ -12,10 +12,10 @@
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
 
-    <gap:plugin name="cordova-plugin-facebook" source="npm">
+    <plugin name="cordova-plugin-facebook">
 	    <param name="FACEBOOK_APP_ID" value="385435218538992" />
 	    <param name="FACEBOOK_DISPLAY_NAME" value="Sleep Now" />
-    </gap:plugin>
+    </plugin>
 
 
 	<feature name="http://api.phonegap.com/1.0/network" />
