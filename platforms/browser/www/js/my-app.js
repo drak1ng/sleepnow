@@ -57,29 +57,27 @@ $$(document).on('pageInit', function (e) {
 
     // Script Tela - Login Manual
     if(page.name=="login"){
+        var fbLoginSuccess = function (userData) {
+            console.log("UserInfo: ", userData);
+            facebookConnectPlugin.getLoginStatus(function onLoginStatus (status) {
+              console.log("current status: ", status);
+              facebookConnectPlugin.showDialog({
+                method: "share"
+              }, function onShareSuccess (result) {
+                console.log("Posted. ", result);
+              });
+            });
+          };
+
         $$('.login-bt-google').on('click', function (e) {
             window.localStorage.setItem('id_usuarios','1');
             mainView.router.loadPage("index.html");
         });
         $$('.login-bt-facebook').on('click', function (e) {
-            window.localStorage.setItem('id_usuarios','1');
-            mainView.router.loadPage("index.html");
+            facebookConnectPlugin.login(["public_profile"], fbLoginSuccess, function(error){ console.error(error); });
+            //window.localStorage.setItem('id_usuarios','1');
+            //mainView.router.loadPage("index.html");
         });
-
-        function onSignIn(googleUser) {
-            // Useful data for your client-side scripts:
-            var profile = googleUser.getBasicProfile();
-            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-            console.log('Full Name: ' + profile.getName());
-            console.log('Given Name: ' + profile.getGivenName());
-            console.log('Family Name: ' + profile.getFamilyName());
-            console.log("Image URL: " + profile.getImageUrl());
-            console.log("Email: " + profile.getEmail());
-    
-            // The ID token you need to pass to your backend:
-            var id_token = googleUser.getAuthResponse().id_token;
-            console.log("ID Token: " + id_token);
-        }
     }
 
     // Script Tela - Login Manual
