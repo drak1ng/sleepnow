@@ -26,7 +26,7 @@
     "cordova-plugin-facebook4": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-facebook4@~6.2.0"
+            "id": "cordova-plugin-facebook4"
         },
         "is_top_level": true,
         "variables": {}
