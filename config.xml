@@ -13,8 +13,8 @@
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
 
     <plugin name="cordova-plugin-facebook4">
-	    <param name="FACEBOOK_APP_ID" value="385435218538992" />
-	    <param name="FACEBOOK_DISPLAY_NAME" value="Sleep Now" />
+	    <param name="APP_ID" value="385435218538992" />
+	    <param name="APP_NAME" value="Sleep Now" />
     </plugin>
 
 
