@@ -12,26 +12,25 @@ var mainView = app.addView('.view-main', {
 
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
-    var id_usuarios = window.localStorage.getItem('id_usuarios');
+    var app_usuario_id = window.localStorage.getItem('app_usuario_id');
+    var app_usuario_nome = window.localStorage.getItem('app_usuario_nome');
+    var app_usuario_imagem = window.localStorage.getItem('app_usuario_imagem');
+    var app_usuario_email = window.localStorage.getItem('app_usuario_email');
 
     $$('#bt-lateral-sair').on('click', function (e) {
-        window.localStorage.setItem('id_usuarios','');
+        window.localStorage.setItem('app_usuario_id','');
         app.closePanel();
         mainView.router.loadPage("login.html");
     });
 
-    
-
     console.log("Device is ready!");
-    console.log("Id user: "+id_usuarios);
+    console.log("Id user: "+app_usuario_id);
 
-    $$('.sidebar-botton').on('click', function (e) {
-        console.log(app.openPanel);
-        app.openPanel('right');
-    });
-
-    if(id_usuarios=="" || id_usuarios==null){
+    if(app_usuario_id=="" || app_usuario_id==null){
         mainView.router.loadPage("login.html");
+    }else{
+        $$(".lateral-usuario-info-nome").html(app_usuario_nome);
+        $$(".lateral-usuario-info-email").html(app_usuario_email);
     }
 
 
@@ -54,6 +53,8 @@ $$(document).on('pageInit', function (e) {
 
     console.log(page.name);
 
+    app.closePanel();
+
     // Script Tela - Login Manual
     if(page.name=="login"){
         $$('.login-bt-google').on('click', function (e) {
@@ -75,13 +76,34 @@ $$(document).on('pageInit', function (e) {
                 app.alert("Os campos E-mail e Senha devem ser preenchidos!","Aviso");
                 return false;
             }
-            window.localStorage.setItem('id_usuarios','1');
-            mainView.router.loadPage("index.html");
+            $$.post('http://capsulas4u.com.br/app_api/login.php', { email:email, senha:senha }, function (data) {
+                console.log(data);
+
+                if(data=="ERRO1"){
+                    app.alert("E-mail ou Senha incorreta!","Aviso");
+                    return false;
+                }
+
+                var retorno = data.split("#|#");
+
+                window.localStorage.setItem('app_usuario_id',retorno[0]);
+                window.localStorage.setItem('app_usuario_nome',retorno[1]);
+                window.localStorage.setItem('app_usuario_imagem',retorno[2]);
+                window.localStorage.setItem('app_usuario_email',retorno[3]);
+
+                $$(".lateral-usuario-info-nome").html(retorno[1]);
+                $$(".lateral-usuario-info-email").html(retorno[3]);
+
+                mainView.router.loadPage("index.html");
+            });
         });
     }
 
     // Script Tela - Login Cadastro
     if(page.name=="login-cadastro-ficha"){
+
+        $('#login-cadastro-ficha-celular').mask('(00) 00000-0000');
+
         $$('#login-cadastro-ficha-bt-continuar').on('click', function (e) {
             var nome = $$('#login-cadastro-ficha-nome').val();
             var celular = $$('#login-cadastro-ficha-celular').val();
@@ -103,8 +125,28 @@ $$(document).on('pageInit', function (e) {
                 app.alert("O campo SENHA deve ser preenchido!","Aviso");
                 return false;
             }
-            window.localStorage.setItem('id_usuarios','1');
-            mainView.router.loadPage("index.html");
+            $$.post('http://capsulas4u.com.br/app_api/login-cadastro.php', { nome:nome, celular:celular, email:email, senha:senha }, function (data) {
+                console.log(data);
+
+                if(data=="ERRO1"){
+                    app.alert("Esse e-mail já foi utilizado em outro cadastro!","Aviso");
+                    return false;
+                }
+
+                var retorno = data.split("#|#");
+
+                window.localStorage.setItem('app_usuario_id',retorno[0]);
+                window.localStorage.setItem('app_usuario_nome',retorno[1]);
+                window.localStorage.setItem('app_usuario_imagem',retorno[2]);
+                window.localStorage.setItem('app_usuario_email',retorno[3]);
+
+                $$(".lateral-usuario-info-nome").html(retorno[1]);
+                $$(".lateral-usuario-info-email").html(retorno[3]);
+
+                mainView.router.loadPage("index.html");
+
+            });
+            
         });
     }
 
@@ -116,8 +158,18 @@ $$(document).on('pageInit', function (e) {
                 app.alert("Você deve informar um e-mail válido!","Aviso");
                 return false;
             }
-            window.localStorage.setItem('id_usuarios','1');
-            mainView.router.loadPage("login-esqueci-senha-obrigado.html");
+            $$.post('http://capsulas4u.com.br/app_api/esqueci-minha-senha.php', { email:email }, function (data) {
+                console.log(data);
+
+                if(data=="ERRO1"){
+                    app.alert("Não encontramos um cadastro com esse e-mail!","Aviso");
+                    return false;
+                }
+
+                mainView.router.loadPage("login-esqueci-senha-obrigado.html");
+
+            });
+            
         });
     }
 
