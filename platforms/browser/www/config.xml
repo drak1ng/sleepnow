@@ -7,6 +7,10 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Sleep Now
     </author>
+    <preference name="776387162818475" />
+    <preference name="Sleep Now" />
+    <preference default="false" name="FACEBOOK_HYBRID_APP_EVENTS" />
+    <preference default="5.5.2" name="FACEBOOK_ANDROID_SDK_VERSION" />
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />
