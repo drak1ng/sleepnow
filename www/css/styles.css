@@ -10,8 +10,12 @@
    See https://github.com/apache/cordova-plugin-statusbar
 */
 
+body {
+    background: #7cdcfb !important;
+}
+
 .statusbar-overlay {
-    background: #000000;
+    background: #7cdcfb !important;
 }
 
 .navbar {
