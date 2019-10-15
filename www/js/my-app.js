@@ -1,5 +1,13 @@
 // Initialize app
-var app = new Framework7();
+var app = new Framework7({
+    statusbar: {
+      iosOverlaysWebView: true,
+      iosBackgroundColor: '#7cdcfb',
+      androidBackgroundColor: '#7cdcfb',
+      iosTextColor: 'black',
+      androidTextColor: 'black',
+    },
+  });
 
 // If we need to use custom DOM library, let's save it to $$ variable:
 var $$ = Dom7;
