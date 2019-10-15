@@ -140,3 +140,14 @@
     border-radius: 5px;
     margin:5px 5px 0px 0px;
 }
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    :root {
+      --f7-device-pixel-ratio: 2;
+    }
+  }
+  @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 3dppx) {
+    :root {
+      --f7-device-pixel-ratio: 3;
+    }
+  }
