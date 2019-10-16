@@ -30,6 +30,9 @@
         },
         "cordova-plugin-media-capture": {
             "PACKAGE_NAME": "br.com.sleepnow.app"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "br.com.sleepnow.app"
         }
     },
     "dependent_plugins": {
