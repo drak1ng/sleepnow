@@ -10,8 +10,7 @@
     
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
-    <plugin name="cordova-plugin-qrscanner" />
-    <plugin name="cordova-plugin-add-swift-support" />
+    <plugin name="cordova-plugin-qrscanner" spec="~3.0.1" />
     <plugin name="cordova-plugin-dialogs" spec="2.0.1" />
     <plugin name="cordova-plugin-inappbrowser" />
 
@@ -83,7 +82,8 @@
 	<preference name="StatusBarBackgroundColor" value="#FFFFFF" />
 	<preference name="StatusBarStyle" value="blackopaque" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="UseSwiftLanguageVersion" value="4.2" />
+    <preference name="UseSwiftLanguageVersion" value="4" />
+    <preference name="SwiftVersion" value="4.2" />
     
     <platform name="android">
         <icon src="res/android/icon-36x36.png" density="ldpi" />
