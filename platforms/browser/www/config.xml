@@ -3,6 +3,9 @@
     <feature name="QRScanner">
         <param name="browser-package" value="QRScanner" />
     </feature>
+    <feature name="Camera">
+        <param name="browser-package" value="Camera" />
+    </feature>
     <name>Sleep Now</name>
     <description>
         Sleep Now
@@ -10,6 +13,15 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Sleep Now
     </author>
+    <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
+        <string>Para tirar uma nova fotos para o seu perfil, precisamos de acesso a camera de seu celular.</string>
+    </edit-config>
+    <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
+        <string>Precisamos de acesso ao microfone para gravar sons.</string>
+    </edit-config>
+    <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryUsageDescription">
+        <string>Para alterar a foto do seu perfil, precisamos de acesso a galeria de fotos do seu celular.</string>
+    </edit-config>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />

@@ -18,7 +18,23 @@
         },
         "cordova-plugin-qrscanner": {
             "PACKAGE_NAME": "br.com.sleepnow.app"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "br.com.sleepnow.app"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "br.com.sleepnow.app"
+        },
+        "cordova-plugin-ios-camera-permissions": {
+            "PACKAGE_NAME": "br.com.sleepnow.app"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "br.com.sleepnow.app"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "br.com.sleepnow.app"
+        }
+    }
 }
