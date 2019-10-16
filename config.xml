@@ -13,6 +13,8 @@
     <plugin name="cordova-plugin-qrscanner" />
     <plugin name="cordova-plugin-dialogs" spec="2.0.1" />
     <plugin name="cordova-plugin-inappbrowser" />
+    <plugin name="qrcode-reader" />
+    <plugin name="webrtc-adapter" />
 
     <plugin name="cordova-plugin-camera" source="npm" />
 	<plugin name="cordova-plugin-ios-camera-permissions" source="npm" />
