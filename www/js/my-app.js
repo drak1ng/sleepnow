@@ -27,7 +27,7 @@ $$(document).on('deviceready', function() {
 
     StatusBar.backgroundColorByName("white");
     StatusBar.overlaysWebView(true);
-    StatusBar.show();
+    StatusBar.hide();
 
     $$('#bt-lateral-sair').on('click', function (e) {
         window.localStorage.setItem('app_usuario_id','');
@@ -50,15 +50,15 @@ $$(document).on('deviceready', function() {
     });
     
     function onDone(err, status){
-        if(err){ app.alert(err); }
+        if(err){ app.alert(err,"Aviso"); }
         if(status.authorized){
-            app.alert("Parou Etapa 1!");
-            QRscanner.show();
+            app.alert("Parou Etapa 1!","Aviso");
+            QRscanner.show().then(data => app.alert(data,"Aviso"),err => app.alert(err,"Aviso"));
         }else if(status.denied){
-            app.alert("Parou Etapa 2!");
+            app.alert("Parou Etapa 2!","Aviso");
             QRScanner.openSettings();
         }else{
-            app.alert("Sem acesso a camera do celular!");
+            app.alert("Sem acesso a camera do celular!","Aviso");
         }
     }
     
