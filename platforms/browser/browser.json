@@ -4,7 +4,18 @@
         "uninstalled": []
     },
     "config_munge": {
-        "files": {}
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"QRScanner\"><param name=\"browser-package\" value=\"QRScanner\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
     },
     "installed_plugins": {
         "cordova-plugin-whitelist": {
@@ -14,6 +25,9 @@
             "PACKAGE_NAME": "br.com.sleepnow.app"
         },
         "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "br.com.sleepnow.app"
+        },
+        "cordova-plugin-qrscanner": {
             "PACKAGE_NAME": "br.com.sleepnow.app"
         }
     },
@@ -26,11 +40,26 @@
             "clobbers": [
                 "window.StatusBar"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-qrscanner/www/www.min.js",
+            "id": "cordova-plugin-qrscanner.QRScanner",
+            "pluginId": "cordova-plugin-qrscanner",
+            "clobbers": [
+                "QRScanner"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-qrscanner/src/browser/plugin.min.js",
+            "id": "cordova-plugin-qrscanner.QRScannerProxy",
+            "pluginId": "cordova-plugin-qrscanner",
+            "runs": true
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.2",
         "cordova-plugin-console": "1.0.7",
-        "cordova-plugin-statusbar": "1.0.1"
+        "cordova-plugin-statusbar": "1.0.1",
+        "cordova-plugin-qrscanner": "3.0.1"
     }
 }

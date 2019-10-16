@@ -15,6 +15,9 @@
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "br.com.sleepnow.app"
+        },
+        "cordova-plugin-qrscanner": {
+            "PACKAGE_NAME": "br.com.sleepnow.app"
         }
     },
     "dependent_plugins": {}
