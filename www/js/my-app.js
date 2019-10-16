@@ -95,6 +95,7 @@ function onDone(err, status){
     if(status.authorized){
         app.dialog.alert("Parou Etapa 1!","Aviso");
         QRScanner.scan(displayContents);
+        QRScanner.show();
     }else if(status.denied){
         app.dialog.alert("Parou Etapa 2!","Aviso");
     }else{
