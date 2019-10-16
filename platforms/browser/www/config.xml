@@ -46,4 +46,5 @@
     <preference name="stay-in-webview" value="false" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="UseSwiftLanguageVersion" value="5" />
 </widget>
