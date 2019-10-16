@@ -44,6 +44,21 @@ $$(document).on('deviceready', function() {
         $$(".lateral-usuario-info-nome").html(app_usuario_nome);
         $$(".lateral-usuario-info-email").html(app_usuario_email);
     }
+
+    $$('#bt-scan-qrcode').on('click', function (e) {
+        QRScanner.prepare(onDone);
+    });
+    
+    function onDone(err, status){
+        if(err){ app.alert(err); }
+        if(status.authorized){
+            QRscanner.show();
+        }else if(status.denied){
+            QRScanner.openSettings();
+        }else{
+            app.alert("Sem acesso a camera do celular!");
+        }
+    }
     
 });
 
