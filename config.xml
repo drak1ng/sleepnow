@@ -100,7 +100,7 @@
       <preference name="StatusBarOverlaysWebView" value="false" />
       <preference name="android-minSdkVersion" value="21" />
       <preference name="SplashMaintainAspectRatio" value="true" />
-      <splash density="land-hdpi" src="res/screen/splash.pngv" />
+      <splash density="land-hdpi" src="res/screen/splash.png" />
       <splash density="land-mdpi" src="res/screen/splash.png" />
       <splash density="land-xhdpi" src="res/screen/splash.png" />
       <splash density="land-xxhdpi" src="res/screen/splash.png" />
