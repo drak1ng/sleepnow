@@ -52,8 +52,10 @@ $$(document).on('deviceready', function() {
     function onDone(err, status){
         if(err){ app.alert(err); }
         if(status.authorized){
+            app.alert("Parou Etapa 1!");
             QRscanner.show();
         }else if(status.denied){
+            app.alert("Parou Etapa 2!");
             QRScanner.openSettings();
         }else{
             app.alert("Sem acesso a camera do celular!");
