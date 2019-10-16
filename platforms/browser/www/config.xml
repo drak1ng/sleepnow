@@ -18,7 +18,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <splash src="res/screen/splash.png" />
-    <preference name="phonegap-version" value="cli-7.1.0" />
+    <preference name="phonegap-version" value="cli-9.0.0" />
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="handset" />
     <preference name="fullscreen" value="true" />

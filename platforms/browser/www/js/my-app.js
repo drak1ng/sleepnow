@@ -25,6 +25,10 @@ $$(document).on('deviceready', function() {
     var app_usuario_imagem = window.localStorage.getItem('app_usuario_imagem');
     var app_usuario_email = window.localStorage.getItem('app_usuario_email');
 
+    StatusBar.backgroundColorByName("black");
+    StatusBar.overlaysWebView(false);
+    StatusBar.show();
+
     $$('#bt-lateral-sair').on('click', function (e) {
         window.localStorage.setItem('app_usuario_id','');
         app.closePanel();

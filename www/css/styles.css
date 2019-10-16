@@ -10,8 +10,23 @@
    See https://github.com/apache/cordova-plugin-statusbar
 */
 
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+button { -webkit-appearance: none; }
+input[type=button] { -webkit-appearance: none; }
+input[type=submit] { -webkit-appearance: none; }
+
+
 body {
     background: #7cdcfb !important;
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    zoom:1;
+	padding-top: constant(safe-area-inset-top);
+	padding-top: env(safe-area-inset-top);
 }
 
 .statusbar-overlay {
