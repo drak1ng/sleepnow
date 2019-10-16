@@ -1646,8 +1646,8 @@ html.device-full-viewport body {
   --f7-navbar-large-title-padding-right: 16px;
 }
 .ios {
-  --f7-navbar-height: 44px;
-  --f7-navbar-tablet-height: 44px;
+  --f7-navbar-height: 60px;
+  --f7-navbar-tablet-height: 60px;
   --f7-navbar-font-size: 17px;
   --f7-navbar-inner-padding-left: 8px;
   --f7-navbar-inner-padding-right: 8px;
@@ -1658,7 +1658,7 @@ html.device-full-viewport body {
   --f7-navbar-subtitle-font-size: 10px;
   --f7-navbar-subtitle-line-height: 1;
   --f7-navbar-shadow-image: none;
-  --f7-navbar-large-title-height: 52px;
+  --f7-navbar-large-title-height: 60px;
   --f7-navbar-large-title-font-size: 34px;
   --f7-navbar-large-title-font-weight: 700;
   --f7-navbar-large-title-letter-spacing: -0.03em;

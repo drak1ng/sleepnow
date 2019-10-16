@@ -1,15 +1,16 @@
-<div class="navbar nav-transparent no-hairline">
-    <div class="navbar-inner">
-        <div class="left">
-            <a href="#" class="back link text-color-white">
-                <i class="icon icon-back color-white"></i>
-                <span>Voltar</span>
-            </a>
-        </div>
-        <div class="center sliding"></div>
-    </div>
-</div>
+
 <div class="page no-toolbar" data-page="login-cadastro">
+    <div class="navbar nav-transparent no-hairline">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link text-color-white">
+                    <i class="icon icon-back color-white"></i>
+                </a>
+            </div>
+            <div class="center sliding"></div>
+        </div>
+    </div>
+    
     <div class="page-content" style="background:#7cdcfb; display:flex; align-items:top; justify-content:center;">
             <div style="width:280px; text-align:center;">
                 <br><br>
@@ -18,8 +19,8 @@
                 <input type="email" class="campo" placeholder="E-mail" id="login-email" />
                 <input type="password" class="campo" placeholder="Senha:" id="login-senha" />
                 <div class="login-bt-acessar" id="bt-login-acessar">Acessar</div>
-                <a href="login-cadastro-ficha.html" class="link"><div class="login-bt-naosoucadastrado">Ainda não sou cadastrado</div></a>
-                <a href="login-esqueci-senha.html" class="link"><div class="login-bt-esqueci">Esqueci minha senha</div></a>
+                <a href="/login-cadastro-ficha/" class="link"><div class="login-bt-naosoucadastrado">Ainda não sou cadastrado</div></a>
+                <a href="/login-esqueci-senha/" class="link"><div class="login-bt-esqueci">Esqueci minha senha</div></a>
             </div>
     </div>
     <style>
@@ -28,7 +29,7 @@
         .login-bt-naosoucadastrado      { text-align:center; color:#596363; font-weight:bold; font-size:15px; border-radius:6px; padding:10px 0px; margin:0px; }
         .login-bt-esqueci               { text-align:center; color:#FFFFFF; font-weight:bold; font-size:13px; border-radius:6px; padding:10px 0px; margin:0px; }
 
-        .campo                          { width:calc(100% - 40px); background:#FFF; border:0px; border-radius:6px; padding:10px; margin:5px 10px; font-size:13px; }
+        .campo                          { width:calc(100% - 20px) !important; background:#FFF !important; border:0px !important; border-radius:6px !important; padding:10px !important; margin:5px 10px !important; font-size:13px !important; }
     </style>
 </div>
 

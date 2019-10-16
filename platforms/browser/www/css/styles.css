@@ -53,7 +53,7 @@ body {
 }
 
 .lateral-usuario {
-    padding:0px 0px 20px 10px;
+    padding:20px 0px 20px 10px;
 }
 
 .lateral-usuario-imagem {
@@ -99,9 +99,8 @@ body {
     font-size:16px;
 }
 
-
-.navbar-fixed .page-content, .navbar-through .page-content {
-    padding-top: 60px;
+.content-block {
+    padding:20px 10px;
 }
 
 .toolbar {

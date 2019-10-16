@@ -54,45 +54,37 @@
                 </div>
             </div>
             <div class="lateral-links">
-                <a href="index.html" class="link"><div class="lateral-links-item"><i class="fal fa-home-lg"></i> Home</div></a>
-                <a href="historico-pagamento.html" class="link"><div class="lateral-links-item"><i class="fal fa-money-check-alt"></i> Histórico de pagamento</div></a>
-                <a href="central-ajuda.html" class="link"><div class="lateral-links-item"><i class="fal fa-question-circle"></i> Central de ajuda</div></a>
-                <a href="termos-uso.html" class="link"><div class="lateral-links-item"><i class="fal fa-file-alt"></i> Termos de uso</div></a>
+                <a href="/"></a><div class="lateral-links-item"><i class="fal fa-home-lg"></i> Home</div></a>
+                <a href="/historico-pagamento/"><div class="lateral-links-item"><i class="fal fa-money-check-alt"></i> Histórico de pagamento</div></a>
+                <a href="/central-ajuda/"><div class="lateral-links-item"><i class="fal fa-question-circle"></i> Central de ajuda</div></a>
+                <a href="/termos-uso/"><div class="lateral-links-item"><i class="fal fa-file-alt"></i> Termos de uso</div></a>
                 <div class="lateral-links-item" id="bt-lateral-sair"><i class="fal fa-sign-out-alt"></i> Sair</div>
             </div>
         </div>
     </div>
 
-    <!-- Views -->
-    <div class="views">
-        <!-- Your main view, should have "view-main" class -->
-        <div class="view view-main">
-            <!-- Top Navbar-->
+    <div class="view view-main">
+        <div data-page="index" class="page">
             <div class="navbar">
                 <div class="navbar-inner">
-                        <img src="img/logo_black.png" width="80" style="margin: 0px auto;" />
+                    <img src="img/logo_black.png" width="80" style="margin: 0px auto;" />
                 </div>
             </div>
-            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-            <div class="pages navbar-through toolbar-through">
-                <!-- Page, "data-page" contains page name -->
-                <div data-page="index" class="page">
-                    <!-- Scrollable page content -->
-                    <div class="page-content">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14620.651891075391!2d-46.52589089999999!3d-23.6343339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1570738786848!5m2!1spt-BR!2sbr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                    </div>
-                </div>
-            </div>
-            <!-- Bottom Toolbar-->
-            <div class="toolbar">
+            
+            <div class="toolbar toolbar-bottom">
                 <div class="slider-botton" id="bt-scan-qrcode">
                     <div class="slider-botton-icon"><i class="fal fa-qrcode"></i></div>
                     <div class="slider-botton-texto">Escanear</div>
                 </div>
                 <div class="sidebar-botton open-panel"><i class="fal fa-bars"></i></div>
             </div>
+
+            <div class="page-content">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14620.651891075391!2d-46.52589089999999!3d-23.6343339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1570738786848!5m2!1spt-BR!2sbr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
         </div>
     </div>
+    
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.bundle.js"></script>

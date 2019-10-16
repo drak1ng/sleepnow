@@ -1,5 +1,35 @@
 // Initialize app
 var app = new Framework7({
+    routes: [
+        {
+            path: '/',
+            url: 'index.html',
+        },{
+            path: '/login/',
+            url: 'login.html',
+        },{
+            path: '/login-cadastro/',
+            url: 'login-cadastro.html',
+        },{
+            path: '/login-cadastro-ficha/',
+            url: 'login-cadastro-ficha.html',
+        },{
+            path: '/login-esqueci-senha/',
+            url: 'login-esqueci-senha.html',
+        },{
+            path: '/login-esqueci-senha-obrigado/',
+            url: 'login-esqueci-senha-obrigado.html',
+        },{
+            path: '/central-ajuda/',
+            url: 'central-ajuda.html',
+        },{
+            path: '/historico-pagamento/',
+            url: 'historico-pagamento.html',
+        },{
+            path: '/termos-uso/',
+            url: 'termos-uso.html',
+        },
+    ],
     statusbar: {
       iosOverlaysWebView: true,
       iosBackgroundColor: '#7cdcfb',
@@ -28,88 +58,92 @@ $$(document).on('deviceready', function() {
     var app_usuario_imagem = window.localStorage.getItem('app_usuario_imagem');
     var app_usuario_email = window.localStorage.getItem('app_usuario_email');
 
-    $$('#bt-lateral-sair').on('click', function (e) {
-        window.localStorage.setItem('app_usuario_id','');
-        app.closePanel();
-        mainView.router.navigate("login.html");
-    });
-
     console.log("Device is ready!");
     console.log("Id user: "+app_usuario_id);
 
     
 
     if(app_usuario_id=="" || app_usuario_id==null){
-        mainView.router.navigate("login.html");
+        mainView.router.navigate("/login/");
     }else{
         $$(".lateral-usuario-info-nome").html(app_usuario_nome);
         $$(".lateral-usuario-info-email").html(app_usuario_email);
     }
 
-    $$('#bt-scan-qrcode').on('click', function (e) {
-        QRScanner.prepare(onDone);
-    });
-    
-    function onDone(err, status){
-        if(err){ app.alert(err,"Aviso"); }
-        if(status.authorized){
-            app.alert("Parou Etapa 1!","Aviso");
-            QRscanner.show().then(data => app.alert(data,"Aviso"),err => app.alert(err,"Aviso"));
-        }else if(status.denied){
-            app.alert("Parou Etapa 2!","Aviso");
-            QRScanner.openSettings();
-        }else{
-            app.alert("Sem acesso a camera do celular!","Aviso");
-        }
-    }
+    loadIndex();
     
 });
 
+function loadIndex(){
+    $$('#bt-lateral-sair').on('click', function (e) {
+        window.localStorage.setItem('app_usuario_id','');
+        app.panel.close();
+        mainView.router.navigate("/login/");
+    });
+
+    $$('.sidebar-botton').on('click', function (e) {
+        app.panel.open();
+    });
+
+    $$('#bt-scan-qrcode').on('click', function (e) {
+        QRScanner.prepare(onDone);
+    });
+}
+    
+function onDone(err, status){
+    if(err){ app.dialog.alert(err,"Aviso"); }
+    if(status.authorized){
+        app.dialog.alert("Parou Etapa 1!","Aviso");
+        QRscanner.show().then(data => app.dialog.alert(data,"Aviso"),err => app.dialog.alert(err,"Aviso"));
+    }else if(status.denied){
+        app.dialog.alert("Parou Etapa 2!","Aviso");
+        QRScanner.openSettings();
+    }else{
+        app.dialog.alert("Sem acesso a camera do celular!","Aviso");
+    }
+}
+
 // Option 2. Using one 'pageInit' event handler for all pages:
-$$(document).on('pageInit', function (e) {
+$$(document).on('page:init', function (e) {
     // Get page data from event data
-    var page = e.detail.page;
 
-    console.log(page.name);
+    app.panel.close();
 
-    app.closePanel();
+    console.log(e.detail.el.dataset.page)
+
+    // Script Tela - Home
+    if(e.detail.el.dataset.page=="index"){
+
+        loadIndex();
+    }
 
     // Script Tela - Login Manual
-    if(page.name=="login"){
+    if(e.detail.el.dataset.page=="login"){
 
         $$('.login-bt-google').on('click', function (e) {
             window.localStorage.setItem('id_usuarios','1');
-            mainView.router.navigate("index.html");
+            mainView.router.navigate("/");
         });
         $$('.login-bt-facebook').on('click', function (e) {
-            var fbLoginSuccess = function (userData) {
-                console.log("UserInfo: ", userData);
-                app.alert(userData);
-                facebookConnectPlugin.getAccessToken(function(token){ console.log("Token: " + token); app.alert(token); });
-            }
-
-            facebookConnectPlugin.login(['public_profile','email'], fbLoginSuccess, function(error){ console.error(error) });
-
-           
-            //window.localStorage.setItem('id_usuarios','1');
-            //mainView.router.navigate("index.html");
+            window.localStorage.setItem('id_usuarios','1');
+            mainView.router.navigate("/");
         });
     }
 
     // Script Tela - Login Manual
-    if(page.name=="login-cadastro"){
+    if(e.detail.el.dataset.page=="login-cadastro"){
         $$('#bt-login-acessar').on('click', function (e) {
             var email = $$('#login-email').val();
             var senha = $$('#login-senha').val();
             if(email=="" || senha==""){
-                app.alert("Os campos E-mail e Senha devem ser preenchidos!","Aviso");
+                app.dialog.alert("Os campos E-mail e Senha devem ser preenchidos!","Aviso");
                 return false;
             }
-            $$.post('http://capsulas4u.com.br/app_api/login.php', { email:email, senha:senha }, function (data) {
+            $.post('http://capsulas4u.com.br/app_api/login.php', { email:email, senha:senha }, function (data) {
                 console.log(data);
 
                 if(data=="ERRO1"){
-                    app.alert("E-mail ou Senha incorreta!","Aviso");
+                    app.dialog.alert("E-mail ou Senha incorreta!","Aviso");
                     return false;
                 }
 
@@ -123,13 +157,13 @@ $$(document).on('pageInit', function (e) {
                 $$(".lateral-usuario-info-nome").html(retorno[1]);
                 $$(".lateral-usuario-info-email").html(retorno[3]);
 
-                mainView.router.navigate("index.html");
+                mainView.router.navigate("/");
             });
         });
     }
 
     // Script Tela - Login Cadastro
-    if(page.name=="login-cadastro-ficha"){
+    if(e.detail.el.dataset.page=="login-cadastro-ficha"){
 
         $('#login-cadastro-ficha-celular').mask('(00) 00000-0000');
 
@@ -139,26 +173,26 @@ $$(document).on('pageInit', function (e) {
             var email = $$('#login-cadastro-ficha-email').val();
             var senha = $$('#login-cadastro-ficha-senha').val();
             if(nome==""){
-                app.alert("O campo NOME deve ser preenchido!","Aviso");
+                app.dialog.alert("O campo NOME deve ser preenchido!","Aviso");
                 return false;
             }
             if(celular==""){
-                app.alert("O campo CELULAR deve ser preenchido!","Aviso");
+                app.dialog.alert("O campo CELULAR deve ser preenchido!","Aviso");
                 return false;
             }
             if(email==""){
-                app.alert("O campo E-MAIL deve ser preenchido!","Aviso");
+                app.dialog.alert("O campo E-MAIL deve ser preenchido!","Aviso");
                 return false;
             }
             if(senha==""){
-                app.alert("O campo SENHA deve ser preenchido!","Aviso");
+                app.dialog.alert("O campo SENHA deve ser preenchido!","Aviso");
                 return false;
             }
-            $$.post('http://capsulas4u.com.br/app_api/login-cadastro.php', { nome:nome, celular:celular, email:email, senha:senha }, function (data) {
+            $.post('http://capsulas4u.com.br/app_api/login-cadastro.php', { nome:nome, celular:celular, email:email, senha:senha }, function (data) {
                 console.log(data);
 
                 if(data=="ERRO1"){
-                    app.alert("Esse e-mail já foi utilizado em outro cadastro!","Aviso");
+                    app.dialog.alert("Esse e-mail já foi utilizado em outro cadastro!","Aviso");
                     return false;
                 }
 
@@ -172,7 +206,7 @@ $$(document).on('pageInit', function (e) {
                 $$(".lateral-usuario-info-nome").html(retorno[1]);
                 $$(".lateral-usuario-info-email").html(retorno[3]);
 
-                mainView.router.navigate("index.html");
+                mainView.router.navigate("/");
 
             });
             
@@ -180,22 +214,22 @@ $$(document).on('pageInit', function (e) {
     }
 
     // Script Tela - Esqueci minha senha
-    if(page.name=="login-cadastro-esqueci"){
+    if(e.detail.el.dataset.page=="login-cadastro-esqueci"){
         $$('#bt-recuperar-senha').on('click', function (e) {
             var email = $$('#recuperar-senha-email').val();
             if(email==""){
-                app.alert("Você deve informar um e-mail válido!","Aviso");
+                app.dialog.alert("Você deve informar um e-mail válido!","Aviso");
                 return false;
             }
-            $$.post('http://capsulas4u.com.br/app_api/esqueci-minha-senha.php', { email:email }, function (data) {
+            $.post('http://capsulas4u.com.br/app_api/esqueci-minha-senha.php', { email:email }, function (data) {
                 console.log(data);
 
                 if(data=="ERRO1"){
-                    app.alert("Não encontramos um cadastro com esse e-mail!","Aviso");
+                    app.dialog.alert("Não encontramos um cadastro com esse e-mail!","Aviso");
                     return false;
                 }
 
-                mainView.router.navigate("login-esqueci-senha-obrigado.html");
+                mainView.router.navigate("/login-esqueci-senha-obrigado/");
 
             });
             
