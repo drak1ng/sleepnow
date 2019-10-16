@@ -82,7 +82,8 @@
 	<preference name="StatusBarBackgroundColor" value="#FFFFFF" />
 	<preference name="StatusBarStyle" value="blackopaque" />
     <preference name="DisallowOverscroll" value="true" />
-
+    <preference name="UseSwiftLanguageVersion" value="5" />
+    
     <platform name="android">
         <icon src="res/android/icon-36x36.png" density="ldpi" />
         <icon src="res/android/icon-48x48.png" density="mdpi" />
