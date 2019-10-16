@@ -10,7 +10,9 @@
     
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
-    
+    <plugin name="cordova-plugin-qrscanner" />
+    <plugin name="cordova-plugin-dialogs" />
+    <plugin name="ordova-plugin-inappbrowser" />
 
 	<feature name="http://api.phonegap.com/1.0/network" />
 	<feature name="http://api.phonegap.com/1.0/camera" />
@@ -56,8 +58,8 @@
 	<preference name="disable-cursor" value="false" />
 	<preference name="stay-in-webview" value="false" />
 	<preference name="StatusBarOverlaysWebView" value="false" />
-	<preference name="StatusBarBackgroundColor" value="#000000" />
-	<preference name="StatusBarStyle" value="lightcontent" />
+	<preference name="StatusBarBackgroundColor" value="#FFFFFF" />
+	<preference name="StatusBarStyle" value="blackopaque" />
     <preference name="DisallowOverscroll" value="true" />
 
     <platform name="android">

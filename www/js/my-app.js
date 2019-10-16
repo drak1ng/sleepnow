@@ -25,7 +25,7 @@ $$(document).on('deviceready', function() {
     var app_usuario_imagem = window.localStorage.getItem('app_usuario_imagem');
     var app_usuario_email = window.localStorage.getItem('app_usuario_email');
 
-    StatusBar.backgroundColorByName("black");
+    StatusBar.backgroundColorByName("white");
     StatusBar.overlaysWebView(true);
     StatusBar.show();
 
@@ -43,6 +43,21 @@ $$(document).on('deviceready', function() {
     }else{
         $$(".lateral-usuario-info-nome").html(app_usuario_nome);
         $$(".lateral-usuario-info-email").html(app_usuario_email);
+    }
+
+    $$('#bt-scan-qrcode').on('click', function (e) {
+        QRScanner.prepare(onDone);
+    });
+    
+    function onDone(err, status){
+        if(err){ app.alert(err); }
+        if(status.authorized){
+            QRscanner.show();
+        }else if(status.denied){
+            QRScanner.openSettings();
+        }else{
+            app.alert("Sem acesso a camera do celular!");
+        }
     }
     
 });

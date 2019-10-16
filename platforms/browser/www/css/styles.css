@@ -31,6 +31,7 @@ body {
 
 .statusbar-overlay {
     background: #7cdcfb !important;
+    display: none !important;
 }
 
 .navbar {

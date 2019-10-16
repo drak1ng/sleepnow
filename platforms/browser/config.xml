@@ -21,6 +21,8 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <splash src="res/screen/splash.png" />
+    <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
+    <preference name="StatusBarStyle" value="blackopaque" />
     <preference name="phonegap-version" value="cli-9.0.0" />
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="handset" />
@@ -31,7 +33,5 @@
     <preference name="disable-cursor" value="false" />
     <preference name="stay-in-webview" value="false" />
     <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#000000" />
-    <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="DisallowOverscroll" value="true" />
 </widget>
