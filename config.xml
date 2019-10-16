@@ -14,6 +14,27 @@
     <plugin name="cordova-plugin-dialogs" />
     <plugin name="ordova-plugin-inappbrowser" />
 
+    <plugin name="cordova-plugin-camera" source="npm" />
+	<plugin name="cordova-plugin-ios-camera-permissions" source="npm" />
+	
+	<plugin name="cordova-plugin-media-capture" source="npm" spec="*">
+	  <variable name="CAMERA_USAGE_DESCRIPTION" value="Para tirar uma nova fotos para o seu perfil, precisamos de acesso a camera de seu celular." />
+	  <variable name="MICROPHONE_USAGE_DESCRIPTION" value="Precisamos de acesso ao microfone para gravar sons." />
+	  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Para alterar a foto do seu perfil, precisamos de acesso a galeria de fotos do seu celular." />
+	</plugin>
+	
+	<edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+	    <string>Para tirar uma nova fotos para o seu perfil, precisamos de acesso a camera de seu celular.</string>
+	</edit-config>
+	
+	<edit-config target="NSMicrophoneUsageDescription" file="*-Info.plist" mode="merge">
+	    <string>Precisamos de acesso ao microfone para gravar sons.</string>
+	</edit-config>
+	
+	<edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
+	    <string>Para alterar a foto do seu perfil, precisamos de acesso a galeria de fotos do seu celular.</string>
+	</edit-config>
+
 	<feature name="http://api.phonegap.com/1.0/network" />
 	<feature name="http://api.phonegap.com/1.0/camera" />
 	<feature name="http://api.phonegap.com/1.0/notification" />
