@@ -94,14 +94,21 @@ function onDone(err, status){
     if(err){ app.dialog.alert(err,"Aviso"); }
     if(status.authorized){
         app.dialog.alert("Parou Etapa 1!","Aviso");
-        QRscanner.show().then(data => app.dialog.alert(data,"Aviso"),err => app.dialog.alert(err,"Aviso"));
+        QRScanner.scan(displayContents);
     }else if(status.denied){
         app.dialog.alert("Parou Etapa 2!","Aviso");
-        QRScanner.openSettings();
     }else{
         app.dialog.alert("Sem acesso a camera do celular!","Aviso");
     }
 }
+
+function displayContents(err, text){
+    if(err){
+        app.dialog.alert(err);
+    }else{
+      app.dialog.alert(text);
+    }
+  }
 
 // Option 2. Using one 'pageInit' event handler for all pages:
 $$(document).on('page:init', function (e) {
