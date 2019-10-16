@@ -9,22 +9,31 @@
     </author>
     
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
-    <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
-    <plugin name="cordova-plugin-qrscanner" spec="~3.0.1" />
+    <plugin name="cordova-plugin-statusbar" spec="2.4.3" />
     <plugin name="cordova-plugin-dialogs" spec="2.0.1" />
-    <plugin name="cordova-plugin-inappbrowser" />
+    <plugin name="cordova-plugin-inappbrowser" spec="3.1.0" />
+    <plugin name="cordova-plugin-device" spec="2.0.3" />
+    <plugin name="cordova-plugin-file" spec="6.0.2" />
+    <plugin name="cordova-plugin-keyboard" spec="1.2.0" />
+    <plugin name="cordova-plugin-media" spec="5.0.3" />
+    <plugin name="cordova-plugin-safariviewcontroller" spec="1.6.0" />
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.3" />
+    <plugin name="cordova-plugin-wkwebview-engine" spec="^1.2.1" />
+    <plugin name="cordova-plugin-wkwebview-file-xhr" spec="2.1.1" />
+
+    <plugin name="cordova-plugin-qrscanner" spec="~3.0.1" />
 
     <plugin name="cordova-plugin-camera" source="npm" />
 	<plugin name="cordova-plugin-ios-camera-permissions" source="npm" />
 	
 	<plugin name="cordova-plugin-media-capture" source="npm" spec="*">
-	  <variable name="CAMERA_USAGE_DESCRIPTION" value="Para tirar uma nova fotos para o seu perfil, precisamos de acesso a camera de seu celular." />
+	  <variable name="CAMERA_USAGE_DESCRIPTION" value="Precisamos de acesso a camera de seu celular." />
 	  <variable name="MICROPHONE_USAGE_DESCRIPTION" value="Precisamos de acesso ao microfone para gravar sons." />
-	  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Para alterar a foto do seu perfil, precisamos de acesso a galeria de fotos do seu celular." />
+	  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Precisamos de acesso a galeria de fotos do seu celular." />
 	</plugin>
 	
 	<edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
-	    <string>Para tirar uma nova fotos para o seu perfil, precisamos de acesso a camera de seu celular.</string>
+	    <string>Precisamos de acesso a camera de seu celular.</string>
 	</edit-config>
 	
 	<edit-config target="NSMicrophoneUsageDescription" file="*-Info.plist" mode="merge">
@@ -32,7 +41,7 @@
 	</edit-config>
 	
 	<edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
-	    <string>Para alterar a foto do seu perfil, precisamos de acesso a galeria de fotos do seu celular.</string>
+	    <string>Precisamos de acesso a galeria de fotos do seu celular.</string>
 	</edit-config>
 
 	<feature name="http://api.phonegap.com/1.0/network" />
@@ -45,30 +54,36 @@
 	<feature name="http://api.phonegap.com/1.0/battery" />
 	<feature name="http://api.phonegap.com/1.0/device" />
 
+    
     <content src="index.html" />
+
     <access origin="*" />
-    <allow-navigation href="*" />
-	<allow-intent href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-
     <platform name="android">
-        <preference name="android-minSdkVersion" value="19" />
         <allow-intent href="market:*" />
-        <allow-intent href="maps:*" />
     </platform>
-    
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <allow-intent href="maps:*" />
-        <preference name="BackupWebStorage" value="none" />
     </platform>
 
+    <allow-navigation href="*" />
+
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="BackupWebStorage" value="local" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="SplashScreenDelay" value="0" />
+    <preference name="Suppresses3DTouchGesture" value="true" />
+    <preference name="Allow3DTouchLinkPreview" value="false" />
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
     <preference name="phonegap-version" value="cli-9.0.0" />
 	<preference name="orientation" value="portrait" />
 	<preference name="target-device" value="handset" />
@@ -78,14 +93,23 @@
 	<preference name="auto-hide-splash-screen" value="true" />
 	<preference name="disable-cursor" value="false" />
 	<preference name="stay-in-webview" value="false" />
-	<preference name="StatusBarOverlaysWebView" value="false" />
-	<preference name="StatusBarBackgroundColor" value="#FFFFFF" />
-	<preference name="StatusBarStyle" value="blackopaque" />
-    <preference name="DisallowOverscroll" value="true" />
     <preference name="UseSwiftLanguageVersion" value="4" />
     <preference name="SwiftVersion" value="4.2" />
     
     <platform name="android">
+      <preference name="StatusBarOverlaysWebView" value="false" />
+      <preference name="android-minSdkVersion" value="21" />
+      <preference name="SplashMaintainAspectRatio" value="true" />
+      <splash density="land-hdpi" src="res/screen/splash.pngv" />
+      <splash density="land-mdpi" src="res/screen/splash.png" />
+      <splash density="land-xhdpi" src="res/screen/splash.png" />
+      <splash density="land-xxhdpi" src="res/screen/splash.png" />
+      <splash density="land-xxxhdpi" src="res/screen/splash.png" />
+      <splash density="port-hdpi" src="res/screen/splash.png" />
+      <splash density="port-mdpi" src="res/screen/splash.png" />
+      <splash density="port-xhdpi" src="res/screen/splash.png" />
+      <splash density="port-xxhdpi" src="res/screen/splash.png" />
+      <splash density="port-xxxhdpi" src="res/screen/splash.png" />
         <icon src="res/android/icon-36x36.png" density="ldpi" />
         <icon src="res/android/icon-48x48.png" density="mdpi" />
         <icon src="res/android/icon-72x72.png" density="hdpi" />
@@ -95,11 +119,14 @@
     </platform>
 
     <platform name="ios">
+        <preference name="StatusBarOverlaysWebView" value="true" />
+        <splash src="res/screen/splash.png" />
         <icon src="res/ios/icon-29x29.png" width="29" height="29" />
         <icon src="res/ios/icon-40x40.png" width="40" height="40" />
         <icon src="res/ios/icon-50x50.png" width="50" height="50" />
         <icon src="res/ios/icon-57x57.png" width="57" height="57" />
         <icon src="res/ios/icon-58x58.png" width="58" height="58" />
+        <icon src="res/ios/icon-60x60.png" width="60" height="60" />
         <icon src="res/ios/icon-72x72.png" width="72" height="72" />
         <icon src="res/ios/icon-76x76.png" width="76" height="76" />
         <icon src="res/ios/icon-80x80.png" width="80" height="80" />
@@ -111,10 +138,9 @@
         <icon src="res/ios/icon-152x152.png" width="152" height="152" />
         <icon src="res/ios/icon-167x167.png" width="167" height="167" />
         <icon src="res/ios/icon-180x180.png" width="180" height="180" />
+        <icon src="res/ios/icon-228x228.png" width="228" height="228" />
         <icon src="res/ios/icon-512x512.png" width="512" height="512" />
         <icon src="res/ios/icon-1024x1024.png" width="1024" height="1024" />
     </platform>
-
-    <splash src="res/screen/splash.png" />
 
 </widget>

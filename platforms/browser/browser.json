@@ -23,7 +23,7 @@
                 "parents": {
                     "NSCameraUsageDescription": [
                         {
-                            "xml": "<string>Para tirar uma nova fotos para o seu perfil, precisamos de acesso a camera de seu celular.</string>",
+                            "xml": "<string>Precisamos de acesso a camera de seu celular.</string>",
                             "count": 1,
                             "mode": "merge",
                             "id": "config.xml"
@@ -39,7 +39,7 @@
                     ],
                     "NSPhotoLibraryUsageDescription": [
                         {
-                            "xml": "<string>Para alterar a foto do seu perfil, precisamos de acesso a galeria de fotos do seu celular.</string>",
+                            "xml": "<string>Precisamos de acesso a galeria de fotos do seu celular.</string>",
                             "count": 1,
                             "mode": "merge",
                             "id": "config.xml"

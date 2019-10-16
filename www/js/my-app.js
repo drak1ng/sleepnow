@@ -13,10 +13,13 @@ var app = new Framework7({
 var $$ = Dom7;
 
 // Add view
-var mainView = app.addView('.view-main', {
-    // Because we want to use dynamic navbar, we need to enable it for this view:
-    dynamicNavbar: true
-});
+var mainView = app.views.create('.view-main');
+
+$(document).on('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded');
+    console.log(app);
+
+  });
 
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
@@ -25,21 +28,19 @@ $$(document).on('deviceready', function() {
     var app_usuario_imagem = window.localStorage.getItem('app_usuario_imagem');
     var app_usuario_email = window.localStorage.getItem('app_usuario_email');
 
-    StatusBar.backgroundColorByName("white");
-    StatusBar.overlaysWebView(true);
-    StatusBar.hide();
-
     $$('#bt-lateral-sair').on('click', function (e) {
         window.localStorage.setItem('app_usuario_id','');
         app.closePanel();
-        mainView.router.loadPage("login.html");
+        mainView.router.navigate("login.html");
     });
 
     console.log("Device is ready!");
     console.log("Id user: "+app_usuario_id);
 
+    
+
     if(app_usuario_id=="" || app_usuario_id==null){
-        mainView.router.loadPage("login.html");
+        mainView.router.navigate("login.html");
     }else{
         $$(".lateral-usuario-info-nome").html(app_usuario_nome);
         $$(".lateral-usuario-info-email").html(app_usuario_email);
@@ -64,15 +65,6 @@ $$(document).on('deviceready', function() {
     
 });
 
-
-// Now we need to run the code that will be executed only for About page.
-
-// Option 1. Using page callback for page (for "about" page in this case) (recommended way):
-app.onPageInit('about', function (page) {
-    // Do something here for "about" page
-
-})
-
 // Option 2. Using one 'pageInit' event handler for all pages:
 $$(document).on('pageInit', function (e) {
     // Get page data from event data
@@ -87,7 +79,7 @@ $$(document).on('pageInit', function (e) {
 
         $$('.login-bt-google').on('click', function (e) {
             window.localStorage.setItem('id_usuarios','1');
-            mainView.router.loadPage("index.html");
+            mainView.router.navigate("index.html");
         });
         $$('.login-bt-facebook').on('click', function (e) {
             var fbLoginSuccess = function (userData) {
@@ -100,7 +92,7 @@ $$(document).on('pageInit', function (e) {
 
            
             //window.localStorage.setItem('id_usuarios','1');
-            //mainView.router.loadPage("index.html");
+            //mainView.router.navigate("index.html");
         });
     }
 
@@ -131,7 +123,7 @@ $$(document).on('pageInit', function (e) {
                 $$(".lateral-usuario-info-nome").html(retorno[1]);
                 $$(".lateral-usuario-info-email").html(retorno[3]);
 
-                mainView.router.loadPage("index.html");
+                mainView.router.navigate("index.html");
             });
         });
     }
@@ -180,7 +172,7 @@ $$(document).on('pageInit', function (e) {
                 $$(".lateral-usuario-info-nome").html(retorno[1]);
                 $$(".lateral-usuario-info-email").html(retorno[3]);
 
-                mainView.router.loadPage("index.html");
+                mainView.router.navigate("index.html");
 
             });
             
@@ -203,7 +195,7 @@ $$(document).on('pageInit', function (e) {
                     return false;
                 }
 
-                mainView.router.loadPage("login-esqueci-senha-obrigado.html");
+                mainView.router.navigate("login-esqueci-senha-obrigado.html");
 
             });
             
