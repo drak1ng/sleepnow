@@ -26,7 +26,7 @@ $$(document).on('deviceready', function() {
     var app_usuario_email = window.localStorage.getItem('app_usuario_email');
 
     StatusBar.backgroundColorByName("black");
-    StatusBar.overlaysWebView(false);
+    StatusBar.overlaysWebView(true);
     StatusBar.show();
 
     $$('#bt-lateral-sair').on('click', function (e) {
