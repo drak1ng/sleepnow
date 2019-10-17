@@ -241,9 +241,11 @@ $$(document).on('page:init', function (e) {
     if(e.detail.el.dataset.page=="historico-pagamento"){
         $$('#prepare').on('click',function (e){
             QRScanner.prepare();
+            
         });
         $$('#show').on('click',function (e){
             QRScanner.show();
+            $('body').hide();
         });
     }
 
