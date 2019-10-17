@@ -136,8 +136,14 @@ $$(document).on('page:init', function (e) {
             mainView.router.navigate("/");
         });
         $$('.login-bt-facebook').on('click', function (e) {
-            window.localStorage.setItem('id_usuarios','1');
-            mainView.router.navigate("/");
+            var fbLoginSuccess = function (userData) {
+                console.log("UserInfo: ", userData);
+                facebookConnectPlugin.getAccessToken(function(token) {
+                    console.log("Token: " + token);
+                });
+            }
+
+            facebookConnectPlugin.login(["public_profile"], fbLoginSuccess, function(error){ console.error(error); });
         });
     }
 
