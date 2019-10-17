@@ -16,6 +16,7 @@
     <!-- Required meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8, width=375, viewport-fit=cover, minimal-ui" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=375, viewport-fit=cover, minimal-ui" />
     <meta name="theme-color" content="#7cdcfb">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -58,6 +59,19 @@
                 <a href="/central-ajuda/"><div class="lateral-links-item"><i class="fal fa-question-circle"></i> Central de ajuda</div></a>
                 <a href="/termos-uso/"><div class="lateral-links-item"><i class="fal fa-file-alt"></i> Termos de uso</div></a>
                 <div class="lateral-links-item" id="bt-lateral-sair"><i class="fal fa-sign-out-alt"></i> Sair</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="qrcode-container">
+        <div class="qrcode-container-caixa">
+            <div class="qrcode-container-caixa-sair"><i class="fal fa-times-circle"></i></div>
+            <div class="qrcode-container-caixa-texto">Escaneie o código para liberar</div>
+            <div class="qrcode-container-caixa-codigo"></div>
+            <div class="qrcode-container-caixa-campo">
+                <div class="qrcode-container-caixa-campo-texto">Digite o código manualmente</div>
+                <input type="text" class="campo" id="qrcode-manual" />
+                <div class="qrcode-container-caixa-campo-botao">Enviar</div>
             </div>
         </div>
     </div>

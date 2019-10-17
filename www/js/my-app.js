@@ -81,6 +81,12 @@ function loadIndex(){
     $$('#bt-scan-qrcode').on('click', function (e) {
         QRScanner.prepare(onDone);
     });
+
+    $$('.qrcode-container-caixa-sair').on('click', function (e) {
+        $('.qrcode-container').hide();
+        $('.view').show();
+        QRScanner.hide();
+    });
 }
     
 function onDone(err, status){
@@ -88,6 +94,7 @@ function onDone(err, status){
     if(status.authorized){
         QRScanner.scan(displayContents);
         QRScanner.show();
+        $('.qrcode-container').show();
         $('.view').hide();
     }else if(status.denied){
         app.dialog.alert("Sem acesso a camera do celular!","Aviso");
@@ -100,6 +107,7 @@ function displayContents(err, text){
     if(err){
         app.dialog.alert(err);
     }else{
+        $('.qrcode-container').hide();
         $('.view').show();
         QRScanner.hide();
         app.dialog.alert(text);
