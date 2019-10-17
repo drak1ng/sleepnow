@@ -147,7 +147,7 @@ $$(document).on('page:init', function (e) {
                             console.log("Result: ", result);
                             app.dialog.alert("Result: " + JSON.stringify(result),"Aviso");
                         }, function onError (error) {
-                            app.dialog.alert("Erro: " + error,"Aviso");
+                            app.dialog.alert("Erro: " + JSON.stringify(error),"Aviso");
                         }
                     );
                 });
