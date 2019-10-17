@@ -142,6 +142,14 @@ $$(document).on('page:init', function (e) {
                 facebookConnectPlugin.getAccessToken(function(token) {
                     console.log("Token: " + token);
                     app.dialog.alert("Token: " + token,"Aviso");
+                    facebookConnectPlugin.api("<user-id>/?fields=id,email", ['public_profile','email'],
+                        function onSuccess (result) {
+                            console.log("Result: ", result);
+                            app.dialog.alert("Result: " + JSON.stringify(result),"Aviso");
+                        }, function onError (error) {
+                            app.dialog.alert("Erro: " + error,"Aviso");
+                        }
+                    );
                 });
             }
 
