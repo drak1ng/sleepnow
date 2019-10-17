@@ -86,9 +86,9 @@ function loadIndex(){
 function onDone(err, status){
     if(err){ app.dialog.alert(err,"Aviso"); }
     if(status.authorized){
-        app.dialog.alert("Parou Etapa 1!","Aviso");
         QRScanner.scan(displayContents);
         QRScanner.show();
+        $('.view').hide();
     }else if(status.denied){
         app.dialog.alert("Parou Etapa 2!","Aviso");
     }else{
@@ -237,16 +237,5 @@ $$(document).on('page:init', function (e) {
         });
     }
 
-    // Script Tela - Esqueci minha senha
-    if(e.detail.el.dataset.page=="historico-pagamento"){
-        $$('#prepare').on('click',function (e){
-            QRScanner.prepare();
-            
-        });
-        $$('#show').on('click',function (e){
-            QRScanner.show();
-            $('body').hide();
-        });
-    }
 
 })
