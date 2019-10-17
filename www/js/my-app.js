@@ -138,12 +138,14 @@ $$(document).on('page:init', function (e) {
         $$('.login-bt-facebook').on('click', function (e) {
             var fbLoginSuccess = function (userData) {
                 console.log("UserInfo: ", userData);
+                app.dialog.alert("UserInfo: "+userData,"Aviso");
                 facebookConnectPlugin.getAccessToken(function(token) {
                     console.log("Token: " + token);
+                    app.dialog.alert("Token: " + token,"Aviso");
                 });
             }
 
-            facebookConnectPlugin.login(["public_profile"], fbLoginSuccess, function(error){ console.error(error); });
+            facebookConnectPlugin.login(['public_profile','email'], fbLoginSuccess, function(error){ console.error(error); });
         });
     }
 
