@@ -138,7 +138,7 @@ $$(document).on('page:init', function (e) {
         $$('.login-bt-facebook').on('click', function (e) {
             var fbLoginSuccess = function (userData) {
                 console.log("UserInfo: ", userData);
-                app.dialog.alert("UserInfo: "+userData,"Aviso");
+                app.dialog.alert("UserInfo: "+JSON.stringify(userData),"Aviso");
                 facebookConnectPlugin.getAccessToken(function(token) {
                     console.log("Token: " + token);
                     app.dialog.alert("Token: " + token,"Aviso");
