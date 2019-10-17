@@ -90,7 +90,7 @@ function onDone(err, status){
         QRScanner.show();
         $('.view').hide();
     }else if(status.denied){
-        app.dialog.alert("Parou Etapa 2!","Aviso");
+        app.dialog.alert("Sem acesso a camera do celular!","Aviso");
     }else{
         app.dialog.alert("Sem acesso a camera do celular!","Aviso");
     }
@@ -100,7 +100,9 @@ function displayContents(err, text){
     if(err){
         app.dialog.alert(err);
     }else{
-      app.dialog.alert(text);
+        $('.view').show();
+        QRScanner.hide();
+        app.dialog.alert(text);
     }
   }
 
