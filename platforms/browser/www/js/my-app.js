@@ -45,12 +45,6 @@ var $$ = Dom7;
 // Add view
 var mainView = app.views.create('.view-main');
 
-$(document).on('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded');
-    console.log(app);
-
-  });
-
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
     var app_usuario_id = window.localStorage.getItem('app_usuario_id');
@@ -62,7 +56,6 @@ $$(document).on('deviceready', function() {
     console.log("Id user: "+app_usuario_id);
 
     
-
     if(app_usuario_id=="" || app_usuario_id==null){
         mainView.router.navigate("/login/");
     }else{
@@ -241,6 +234,16 @@ $$(document).on('page:init', function (e) {
 
             });
             
+        });
+    }
+
+    // Script Tela - Esqueci minha senha
+    if(e.detail.el.dataset.page=="historico-pagamento"){
+        $$('#prepare').on('click',function (e){
+            QRScanner.prepare();
+        });
+        $$('#show').on('click',function (e){
+            QRScanner.show();
         });
     }
 

@@ -11,17 +11,9 @@
         <div class="page-content">
             <div class="content-block">
                 <p>Em desenvolvimento!</p>
-                <p onclick="prepare()">Prepare</p>
-                <p onclick="show()">Show</p>
-                <script type="text/javascript">
-                    alert(JSON.stringify(window.QRScanner));
-                    function prepare(){
-                        QRScanner.prepare();
-                    }
-                    function show() {
-                        QRScanner.show();
-                    }
-                </script>
+                <p id="prepare">Prepare</p>
+                <p id="show">Show</p>
+
             </div>
         </div>
     </div>
