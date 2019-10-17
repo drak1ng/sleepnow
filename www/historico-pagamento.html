@@ -7,11 +7,26 @@
     </div>
 </div>
 <div class="pages">
-    <div data-page="historico-pagamento" class="page">
+    <div data-page="historico-pagamento" class="page" style="background-color:rgba(0,0,0,0.2) !important;">
         <div class="page-content">
             <div class="content-block">
                 <p>Em desenvolvimento!</p>
+                <p onclick="prepare()">Prepare</p>
+                <p onclick="show()">Show</p>
+                <script type="text/javascript">
+                    alert(JSON.stringify(window.QRScanner));
+                    function prepare(){
+                        QRScanner.prepare();
+                    }
+                    function show() {
+                        QRScanner.show();
+                    }
+                </script>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    body { background-color:transparent !important; }
+</style>
