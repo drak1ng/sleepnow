@@ -96,6 +96,7 @@ function onDone(err, status){
         QRScanner.show();
         $('.qrcode-container').show();
         $('.view').hide();
+        $('body').css('background','transparent');
     }else if(status.denied){
         app.dialog.alert("Sem acesso a camera do celular!","Aviso");
     }else{
@@ -109,6 +110,7 @@ function displayContents(err, text){
     }else{
         $('.qrcode-container').hide();
         $('.view').show();
+        $('body').css('background','#7cdcfb');
         QRScanner.hide();
         app.dialog.alert(text);
     }
