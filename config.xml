@@ -23,6 +23,8 @@
 	    <param name="APP_NAME" value="Sleep Now" />
     </plugin>
 
+    <plugin name="cordova-plugin-googleplus" spec="8.1.2" />
+
     <plugin name="cordova-plugin-camera" source="npm" />
 	<plugin name="cordova-plugin-ios-camera-permissions" source="npm" />
 	
