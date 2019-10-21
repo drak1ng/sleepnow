@@ -23,7 +23,7 @@
 	    <param name="APP_NAME" value="Sleep Now" />
     </plugin>
 
-    <plugin name="cordova-plugin-googleplus" spec="8.1.2">
+    <plugin name="cordova-plugin-googleplus" spec="7.0.2">
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.559664173319-u04gf9i8p45e4bqnrsc57q3jfgppj978" />
         <variable name="WEB_APPLICATION_CLIENT_ID" value="559664173319-u04gf9i8p45e4bqnrsc57q3jfgppj978.apps.googleusercontent.com" />
     </plugin>
