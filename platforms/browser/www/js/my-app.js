@@ -133,9 +133,27 @@ $$(document).on('page:init', function (e) {
     // Script Tela - Login Manual
     if(e.detail.el.dataset.page=="login"){
 
+        /*
         $$('.login-bt-google').on('click', function (e) {
             window.localStorage.setItem('id_usuarios','1');
             mainView.router.navigate("/");
+        });
+        */
+
+        $$('.login-bt-google').on('click', function (e) {
+            window.plugins.googleplus.login(
+            {
+                'scopes': 'email profile', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
+                'webClientId': 'client id of the web app/server side', // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
+                'offline': true // optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
+            },
+            function (obj) {
+                app.dialog.alert("Erro: " + JSON.stringify(obj),"Aviso");
+            },
+            function (msg) {
+                app.dialog.alert("Erro: " + JSON.stringify(msg),"Aviso");
+            }
+        );
         });
         $$('.login-bt-facebook').on('click', function (e) {
             var fbLoginSuccess = function (userData) {
