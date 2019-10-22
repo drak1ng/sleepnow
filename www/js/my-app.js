@@ -165,12 +165,25 @@ $$(document).on('page:init', function (e) {
                     facebookConnectPlugin.api("/me?fields=id,name,first_name,last_name,gender,picture,email", ["public_profile", "email"],
                         function onSuccess (result) {
                             console.log("Result: ", result);
-                            app.dialog.alert("id" + result.id,"Aviso");
-                            app.dialog.alert("E-mail" + result.email,"Aviso");
-                            app.dialog.alert("Nome" + result.first_name + " " + result.last_name,"Aviso");
-                            app.dialog.alert("Imagem" + result.picture.data.url,"Aviso");
-                            app.dialog.alert("Result: " + JSON.stringify(result),"Aviso");
                             
+                            $.post('http://capsulas4u.com.br/app_api/login-cadastro.php', { opt:'facebook', nome:nome, celular:celular, email:result.email, senha:token, sexo:sexo:result.gender, imagem:result.picture.data.url }, function (data) {
+                                console.log(data);
+                
+                                var retorno = data.split("#|#");
+                
+                                window.localStorage.setItem('app_usuario_id',retorno[0]);
+                                window.localStorage.setItem('app_usuario_nome',retorno[1]);
+                                window.localStorage.setItem('app_usuario_imagem',retorno[2]);
+                                window.localStorage.setItem('app_usuario_email',retorno[3]);
+                
+                                $$(".lateral-usuario-info-nome").html(retorno[1]);
+                                $$(".lateral-usuario-info-email").html(retorno[3]);
+                                $('.lateral-usuario-imagem').css('background-image','url('+ retorno[2] +')');
+                
+                                mainView.router.navigate("/");
+                
+                            });
+
 //nome:result.first_name, sobrenome:result.last_name, sexo:result.gender, email:result.email, imagem:result.picture.data.url, id_facebook:result.id
 
                         }, function onError (error) {
