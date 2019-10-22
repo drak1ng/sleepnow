@@ -167,9 +167,12 @@ $$(document).on('page:init', function (e) {
                             console.log("Result: ", result);
                             app.dialog.alert("id" + result.id,"Aviso");
                             app.dialog.alert("E-mail" + result.email,"Aviso");
-                            app.dialog.alert("Nome" + result.nome,"Aviso");
-                            app.dialog.alert("Imagem" + result.picture,"Aviso");
+                            app.dialog.alert("Nome" + result.first_name + " " + result.last_name,"Aviso");
+                            app.dialog.alert("Imagem" + result.picture.data.url,"Aviso");
                             app.dialog.alert("Result: " + JSON.stringify(result),"Aviso");
+                            
+//nome:result.first_name, sobrenome:result.last_name, sexo:result.gender, email:result.email, imagem:result.picture.data.url, id_facebook:result.id
+
                         }, function onError (error) {
                             app.dialog.alert("Erro: " + JSON.stringify(error),"Aviso");
                         }
