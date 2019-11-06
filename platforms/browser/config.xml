@@ -6,12 +6,12 @@
     <feature name="Camera">
         <param name="browser-package" value="Camera" />
     </feature>
-    <name>Sleep Now</name>
+    <name>For You</name>
     <description>
-        Sleep Now
+        Capsulas For You
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Sleep Now
+        For You
     </author>
     <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
         <string>Precisamos de acesso a camera de seu celular.</string>

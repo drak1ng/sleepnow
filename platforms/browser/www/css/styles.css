@@ -20,7 +20,7 @@ input[type=submit] { -webkit-appearance: none; }
 
 
 body {
-    background: #7cdcfb;
+    background: #4c359c;
     -webkit-touch-callout: none;
     -webkit-text-size-adjust: none;
     -webkit-user-select: none;
@@ -31,12 +31,12 @@ body {
 
 
 .statusbar-overlay {
-    background: #7cdcfb !important;
+    background: #4c359c !important;
     display: none !important;
 }
 
 .navbar {
-    background: #7cdcfb !important;
+    background: #4c359c !important;
     height:60px;
 }
 
@@ -113,7 +113,7 @@ body {
     width: calc(100% - 50px);
     height:36px;
     float: left;
-    background: #7cdcfb !important;
+    background: #4c359c !important;
     border-radius: 5px;
     margin:5px 0px 0px 5px;
 }
@@ -211,7 +211,7 @@ body {
 }
 
 .qrcode-container-caixa-codigo {
-    border:2px solid #7cdcfb;
+    border:2px solid #4c359c;
     width:200px;
     height:200px;
     margin:0px auto;
@@ -225,7 +225,7 @@ body {
 .qrcode-container-caixa-campo-texto {
     text-align:center;
     font-size:15px;
-    color: #7cdcfb;
+    color: #4c359c;
     font-weight:bold;
 
 }

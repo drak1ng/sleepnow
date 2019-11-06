@@ -166,7 +166,7 @@ $$(document).on('page:init', function (e) {
                         function onSuccess (result) {
                             console.log("Result: ", result);
                             
-                            $.post('http://capsulas4u.com.br/app_api/login-cadastro.php', { opt:'facebook', nome:nome, celular:celular, email:result.email, senha:result.id, sexo:sexo:result.gender, imagem:result.picture.data.url }, function (data) {
+                            $.post('http://capsulas4u.com.br/app_api/login-cadastro.php', { opt:'facebook', nome:nome, celular:celular, email:result.email, senha:result.id, sexo:result.gender, imagem:result.picture.data.url }, function (data) {
                                 console.log(data);
                 
                                 var retorno = data.split("#|#");
