@@ -34,8 +34,8 @@ var app = new Framework7({
       iosOverlaysWebView: true,
       iosBackgroundColor: '#4c359c',
       androidBackgroundColor: '#4c359c',
-      iosTextColor: 'black',
-      androidTextColor: 'black',
+      iosTextColor: 'white',
+      androidTextColor: 'white',
     },
   });
 
