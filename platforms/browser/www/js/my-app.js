@@ -313,5 +313,12 @@ $$(document).on('page:init', function (e) {
         });
     }
 
+    // Script Tela - Esqueci minha senha
+    if(e.detail.el.dataset.page=="login-cadastro-esqueci-obrigado"){
+
+        $('.page-content').css('background-color','#FFF');
+        
+    }
+
 
 })
