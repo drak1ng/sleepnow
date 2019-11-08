@@ -120,6 +120,8 @@ function displayContents(err, text){
 $$(document).on('page:init', function (e) {
     // Get page data from event data
 
+    $('.page-content').css('background-color','#4c359c');
+
     app.panel.close();
 
     console.log(e.detail.el.dataset.page)
@@ -199,6 +201,9 @@ $$(document).on('page:init', function (e) {
 
     // Script Tela - Login Manual
     if(e.detail.el.dataset.page=="login-cadastro"){
+
+        $('.page-content').css('background-color','#FFF');
+
         $$('#bt-login-acessar').on('click', function (e) {
             var email = $$('#login-email').val();
             var senha = $$('#login-senha').val();
@@ -231,6 +236,8 @@ $$(document).on('page:init', function (e) {
 
     // Script Tela - Login Cadastro
     if(e.detail.el.dataset.page=="login-cadastro-ficha"){
+
+        $('.page-content').css('background-color','#FFF');
 
         $('#login-cadastro-ficha-celular').mask('(00) 00000-0000');
 
@@ -282,6 +289,9 @@ $$(document).on('page:init', function (e) {
 
     // Script Tela - Esqueci minha senha
     if(e.detail.el.dataset.page=="login-cadastro-esqueci"){
+
+        $('.page-content').css('background-color','#FFF');
+        
         $$('#bt-recuperar-senha').on('click', function (e) {
             var email = $$('#recuperar-senha-email').val();
             if(email==""){

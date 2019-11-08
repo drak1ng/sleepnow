@@ -36,7 +36,8 @@ body {
 }
 
 .navbar {
-    background: #4c359c !important;
+    background: white !important;
+    color: #4c359c !important;
     height:60px;
 }
 
@@ -44,8 +45,12 @@ body {
     background: transparent !important;
 }
 
-.text-color-white {
-    color:#FFF;
+.navbar .text-color-white {
+    color:#4c359c !important;
+}
+
+.navbar .color-white {
+    color:#4c359c !important;
 }
 
 .panel {
