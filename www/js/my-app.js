@@ -38,7 +38,7 @@ var app = new Framework7({
         
     ],
     statusbar: {
-      iosOverlaysWebView: true,
+      iosOverlaysWebView: false,
       iosBackgroundColor: '#4c359c',
       androidBackgroundColor: '#4c359c',
       iosTextColor: 'white',
@@ -92,6 +92,9 @@ function loadIndex(){
     $$('.qrcode-container-caixa-sair').on('click', function (e) {
         $('.qrcode-container').hide();
         $('.view').show();
+        $('body').css('background','#7cdcfb');
+        QRScanner.disableLight();
+        QRScanner.cancelScan();
         QRScanner.hide();
         QRScanner.destroy();
     });
@@ -119,8 +122,10 @@ function displayContents(err, text){
         $('.qrcode-container').hide();
         $('.view').show();
         $('body').css('background','#7cdcfb');
+        QRScanner.disableLight();
+        QRScanner.cancelScan();
         QRScanner.hide();
-        app.dialog.alert(text);
+        QRScanner.destroy();
     }
   }
 
