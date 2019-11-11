@@ -205,7 +205,7 @@ $$(document).on('page:init', function (e) {
                                 $$(".lateral-usuario-info-email").html(retorno[3]);
                                 $('.lateral-usuario-imagem').css('background-image','url('+ retorno[2] +')');
                 
-                                mainView.router.navigate("/");
+                                mainView.router.navigate("/home/");
                 
                             });
 
@@ -250,7 +250,7 @@ $$(document).on('page:init', function (e) {
                 $$(".lateral-usuario-info-nome").html(retorno[1]);
                 $$(".lateral-usuario-info-email").html(retorno[3]);
 
-                mainView.router.navigate("/");
+                mainView.router.navigate("/home/");
             });
         });
     }
@@ -299,7 +299,7 @@ $$(document).on('page:init', function (e) {
                 $$(".lateral-usuario-info-nome").html(retorno[1]);
                 $$(".lateral-usuario-info-email").html(retorno[3]);
 
-                mainView.router.navigate("/");
+                mainView.router.navigate("/home/");
 
             });
             
