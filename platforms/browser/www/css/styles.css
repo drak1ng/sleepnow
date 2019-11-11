@@ -319,14 +319,14 @@ body {
 }
 
 .central-ajuda-interna-item-pergunta {
-    padding:15px 15px 0px 15px;
-    font-size:18px;
+    padding:15px 0px 0px 0px;
+    font-size:20px;
     font-weight:bold;
 }
 
 .central-ajuda-interna-item-resposta {
-    padding:10px 15px 20px 15px;
-    font-size:15px;
+    padding:10px 0px 20px 0px;
+    font-size:17px;
 }
 
 
