@@ -5,6 +5,9 @@ var app = new Framework7({
             path: '/',
             url: 'index.html',
         },{
+            path: '/home/',
+            url: 'home.html',
+        },{
             path: '/login/',
             url: 'login.html',
         },{
@@ -61,16 +64,19 @@ $$(document).on('deviceready', function() {
 
     console.log("Device is ready!");
     console.log("Id user: "+app_usuario_id);
-
-    
-    if(app_usuario_id=="" || app_usuario_id==null){
-        mainView.router.navigate("/login/");
-    }else{
-        $$(".lateral-usuario-info-nome").html(app_usuario_nome);
-        $$(".lateral-usuario-info-email").html(app_usuario_email);
-    }
-
     loadIndex();
+
+    setTimeout(() => {
+    
+        if(app_usuario_id=="" || app_usuario_id==null){
+            mainView.router.navigate("/login/");
+        }else{
+            $$(".lateral-usuario-info-nome").html(app_usuario_nome);
+            $$(".lateral-usuario-info-email").html(app_usuario_email);
+            mainView.router.navigate("/home/");
+            $('#toolbar-home').show();
+        }
+    }, 3100);
     
 });
 
@@ -141,6 +147,13 @@ $$(document).on('page:init', function (e) {
     if(e.detail.el.dataset.page=="index"){
         loadIndex();
     }
+
+    // Script Tela - Home
+    if(e.detail.el.dataset.page=="home"){
+        $('#toolbar-home').show();
+    }
+
+    
 
     // Script Tela - Login Manual
     if(e.detail.el.dataset.page=="login"){
