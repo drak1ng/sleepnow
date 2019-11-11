@@ -93,6 +93,7 @@ function loadIndex(){
         $('.qrcode-container').hide();
         $('.view').show();
         QRScanner.hide();
+        QRScanner.destroy();
     });
 }
     
@@ -127,7 +128,7 @@ function displayContents(err, text){
 $$(document).on('page:init', function (e) {
     // Get page data from event data
 
-    $('.page-content').css('background-color','#4c359c');
+    $('.page-content').css('background-color','#FFF');
 
     app.panel.close();
 
@@ -135,7 +136,7 @@ $$(document).on('page:init', function (e) {
 
     // Script Tela - Home
     if(e.detail.el.dataset.page=="index"){
-
+        $('.page-content').css('background-color','#4c359c');
         loadIndex();
     }
 
