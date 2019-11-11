@@ -57,6 +57,10 @@ body {
     background: #FFF;
 }
 
+.page {
+    height: calc(100% - 42px) !important;
+}
+
 .lateral-usuario {
     padding:20px 0px 20px 10px;
 }
@@ -150,6 +154,11 @@ body {
     text-transform: uppercase;
     font-size:14px;
     font-weight: bold;
+    color:#FFF;
+}
+
+.slider-botton-texto i {
+    padding-right:10px;
 }
 
 .toolbar .sidebar-botton{

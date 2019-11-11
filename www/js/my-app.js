@@ -28,7 +28,11 @@ var app = new Framework7({
         },{
             path: '/termos-uso/',
             url: 'termos-uso.html',
+        },{
+            path: '/minha-carteira/',
+            url: 'minha-carteira.html',
         },
+        
     ],
     statusbar: {
       iosOverlaysWebView: true,
