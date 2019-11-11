@@ -68,6 +68,7 @@ body {
     float: left;
     border-radius: 40px;
     background: #000;
+    border:2px solid #e89110;
 }
 
 .lateral-usuario-info {
