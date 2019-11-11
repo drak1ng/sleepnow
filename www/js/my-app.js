@@ -31,6 +31,9 @@ var app = new Framework7({
         },{
             path: '/minha-carteira/',
             url: 'minha-carteira.html',
+        },{
+            path: '/minha-carteira-novo/',
+            url: 'minha-carteira-novo.html',
         },
         
     ],
