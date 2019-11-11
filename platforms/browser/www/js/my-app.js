@@ -370,16 +370,10 @@ $$(document).on('page:init', function (e) {
             var retorno = "";
 
             for (var j = 0; j < conteudo.length; j++) {
-                retorno += '<div class="central-ajuda-interna-item"><div class="central-ajuda-interna-item-pergunta" rel="resposta_'+conteudo[j]['id']+'">'+conteudo[j]['pergunta']+'</div><div class="central-ajuda-interna-item-resposta" id="resposta_'+conteudo[j]['id']+'">'+conteudo[j]['resposta']+'</div></div>';
+                retorno += '<div class="central-ajuda-interna-item"><div class="central-ajuda-interna-item-pergunta">'+conteudo[j]['pergunta']+'</div><div class="central-ajuda-interna-item-resposta" id="resposta_'+conteudo[j]['id']+'">'+conteudo[j]['resposta']+'</div></div>';
             }
 
             $("#central-ajuda-interna-content").html(retorno);
-
-            $(".central-ajuda-interna-item-pergunta").click(function(){
-                var id = $(this).attr('rel');
-                console.log(id);
-                $('#'+id).slideToggle();
-            });
 
         });
     }
