@@ -2711,7 +2711,7 @@ html.device-full-viewport body {
   --f7-toolbar-hide-show-transition-duration: 400ms;
 }
 .ios {
-  --f7-toolbar-height: 44px;
+  --f7-toolbar-height: 64px;
   --f7-toolbar-font-size: 17px;
   --f7-toolbar-inner-padding-left: 8px;
   --f7-toolbar-inner-padding-right: 8px;
@@ -2738,7 +2738,7 @@ html.device-full-viewport body {
   --f7-tabbar-link-inactive-color: rgba(255, 255, 255, 0.54);
 }
 .md {
-  --f7-toolbar-height: 48px;
+  --f7-toolbar-height: 68px;
   --f7-toolbar-font-size: 14px;
   --f7-toolbar-inner-padding-left: 0px;
   --f7-toolbar-inner-padding-right: 0px;
@@ -2768,7 +2768,7 @@ html.device-full-viewport body {
   --f7-tabbar-link-inactive-color: rgba(255, 255, 255, 0.54);
 }
 .aurora {
-  --f7-toolbar-height: 38px;
+  --f7-toolbar-height: 78px;
   --f7-toolbar-font-size: 14px;
   --f7-toolbar-inner-padding-left: 16px;
   --f7-toolbar-inner-padding-right: 16px;
