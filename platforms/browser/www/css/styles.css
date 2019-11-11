@@ -107,6 +107,19 @@ body {
     color:#4c359c !important;
 }
 
+.loading {
+    margin:30px 0px;
+    padding:180px 0px 20px 0px;
+    background:url(../img/loading.gif) center top no-repeat;
+    text-align:center;
+}
+
+.loading-texto {
+    font-size:18px;
+    font-weight:bold;
+    color:#666;
+}
+
 .content-block {
     padding:20px 10px;
 }
@@ -278,6 +291,28 @@ body {
     margin-bottom:30px;
 }
 
+
+.central-ajuda-item {
+    width:calc(50% - 40px);
+    margin:20px;
+    float:left;
+    border-radius:10px;
+    padding:10px 0px;
+    background:#ebebeb;
+}
+
+.central-ajuda-item-icone {
+    text-align:center;
+    font-size:36px;
+    padding:20px 0px;
+    color:#4c359c;
+}
+
+.central-ajuda-item-texto {
+    font-size:18px;
+    text-align:center;
+    padding-bottom:20px;
+}
 
 
 
