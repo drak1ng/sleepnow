@@ -29,6 +29,7 @@ body {
 	padding-top: env(safe-area-inset-top);
 }
 
+.page-content   { background:#FFF !important; }
 
 .statusbar-overlay {
     background: #4c359c !important;
