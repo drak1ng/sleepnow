@@ -392,7 +392,7 @@ $$(document).on('page:init', function (e) {
 
     // Script Tela - Esqueci minha senha
     if(e.detail.el.dataset.page=="minha-carteira-novo"){
-        
+        $('#minha-carteira-novo-validade').mask('00/0000');
     }
 
 
