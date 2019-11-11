@@ -327,5 +327,19 @@ $$(document).on('page:init', function (e) {
         
     }
 
+    // Script Tela - Esqueci minha senha
+    if(e.detail.el.dataset.page=="minha-carteira"){
+
+        $('.page-content').css('background-color','#FFF');
+        
+    }
+
+    // Script Tela - Esqueci minha senha
+    if(e.detail.el.dataset.page=="minha-carteira-novo"){
+
+        $('.page-content').css('background-color','#FFF');
+        
+    }
+
 
 })
