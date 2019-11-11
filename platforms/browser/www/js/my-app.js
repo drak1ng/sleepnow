@@ -76,7 +76,7 @@ $$(document).on('deviceready', function() {
             mainView.router.navigate("/home/");
             $('#toolbar-home').show();
         }
-    }, 3100);
+    }, 3450);
     
 });
 
