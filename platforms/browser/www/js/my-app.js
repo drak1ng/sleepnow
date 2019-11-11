@@ -340,7 +340,7 @@ $$(document).on('page:init', function (e) {
             var retorno = "";
 
             for (var j = 0; j < conteudo.length; j++) {
-                retorno += '<div class="central-ajuda-item" rel="'+conteudo[j]['id']+'"><div class="central-ajuda-item-icone"><i class="'+conteudo[j]['icone']+'"></i></div><div class="central-ajuda-item-texto">'+conteudo[j]['nome']+'</div></div>';                
+                retorno += '<div class="central-ajuda-item" rel="'+conteudo[j]['id']+';'+conteudo[j]['nome']+'"><div class="central-ajuda-item-icone"><i class="'+conteudo[j]['icone']+'"></i></div><div class="central-ajuda-item-texto">'+conteudo[j]['nome']+'</div></div>';                
             }
             retorno += '<div style="clear:both;"></div>';
 
@@ -348,9 +348,37 @@ $$(document).on('page:init', function (e) {
 
             $(".central-ajuda-item").click(function(){
                 var id = $(this).attr('rel');
+                var partes = id.split(';');
                 console.log(id);
-                window.localStorage.setItem('app_ajuda_id',id);
+                window.localStorage.setItem('app_ajuda_id',partes[0]);
+                window.localStorage.setItem('app_ajuda_nome',partes[1]);
                 mainView.router.navigate("/central-ajuda-interna/");
+            });
+
+        });
+    }
+
+    // Script Tela - Esqueci minha senha
+    if(e.detail.el.dataset.page=="central-ajuda-interna"){
+        var app_ajuda_id = window.localStorage.getItem('app_ajuda_id');
+        var app_ajuda_nome = window.localStorage.getItem('app_ajuda_nome');
+
+        $('#central-ajuda-interna-titulo').html(app_ajuda_nome);
+
+        $.get("http://capsulas4u.com.br/app_api/central-ajuda-interna.php", { id:app_ajuda_id }, function(data){
+            var conteudo = JSON.parse(data);
+            var retorno = "";
+
+            for (var j = 0; j < conteudo.length; j++) {
+                retorno += '<div class="central-ajuda-interna-item"><div class="central-ajuda-interna-item-pergunta" rel="resposta_'+conteudo[j]['id']+'">'+conteudo[j]['pergunta']+'</div><div class="central-ajuda-interna-item-resposta" id="resposta_'+conteudo[j]['id']+'">'+conteudo[j]['resposta']+'</div></div>';
+            }
+
+            $("#central-ajuda-interna-content").html(retorno);
+
+            $(".central-ajuda-interna-item-pergunta").click(function(){
+                var id = $(this).attr('rel');
+                console.log(id);
+                $('#'+id).slideToggle();
             });
 
         });

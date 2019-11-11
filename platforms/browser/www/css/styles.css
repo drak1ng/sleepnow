@@ -314,6 +314,27 @@ body {
     padding-bottom:20px;
 }
 
+.central-ajuda-interna-item {
+    margin:20px;
+}
+
+.central-ajuda-interna-item-pergunta {
+    border:1px solid #CCC;
+    padding:15px;
+    background:#ebebeb;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.central-ajuda-interna-item-resposta {
+    border:1px solid #CCC;
+    border-top:0px;
+    padding:15px;
+    background:#FFF;
+    font-size:14px;
+    display:block;
+}
+
 
 
 :root {
