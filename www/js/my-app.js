@@ -397,9 +397,7 @@ $$(document).on('page:init', function (e) {
     // Script Tela - Esqueci minha senha
     if(e.detail.el.dataset.page=="central-ajuda-telefone"){
         $.get("http://capsulas4u.com.br/app_api/central-ajuda-telefone.php", function(data){
-
             $("#central-ajuda-telefone-content").html(data);
-
         });
     }
 
@@ -485,6 +483,13 @@ $$(document).on('page:init', function (e) {
                 window.localStorage.setItem('app_usuario_qtd_cartao',1);
             });
 
+        });
+    }
+
+    // Script Tela - Esqueci minha senha
+    if(e.detail.el.dataset.page=="termos-uso"){
+        $.get("http://capsulas4u.com.br/app_api/termos-uso.php", function(data){
+            $("#termos-uso-content").html(data);
         });
     }
 
