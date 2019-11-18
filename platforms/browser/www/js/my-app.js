@@ -41,6 +41,9 @@ var app = new Framework7({
             path: '/minha-carteira-novo/',
             url: 'minha-carteira-novo.html',
         },{
+            path: '/minha-carteira-novo-obrigado/',
+            url: 'minha-carteira-novo-obrigado.html',
+        },{
             path: '/promocoes/',
             url: 'promocoes.html',
         },
@@ -421,6 +424,27 @@ $$(document).on('page:init', function (e) {
             $('#minha-carteira-novo-bandeira').val(cartao);
             $('.cartoes-item').css("border-color","#FFF");
             $(this).css("border-color","#55C763");
+        });
+
+        $('#minha-carteira-novo-bt-continuar').click(function(){
+            var bandeira = $('#minha-carteira-novo-bandeira').val();
+            var numero = $('#minha-carteira-novo-numero').val();
+            var nome = $('#minha-carteira-novo-nome').val();
+            var validade = $('#minha-carteira-novo-validade').val();
+            var codigo = $('#minha-carteira-novo-codigo').val();
+
+            if(bandeira==""){ app.dialog.alert("Você precisa selecionar qual a bandeira do seu cartão!","Aviso"); return false; }
+            if(numero==""){ app.dialog.alert("Você precisa informar o número do seu cartão!","Aviso"); return false; }
+            if(nome==""){ app.dialog.alert("Você precisa informar o nome completo igual está no cartão!","Aviso"); return false; }
+            if(validade==""){ app.dialog.alert("Você precisa informar a válidade do seu cartão!","Aviso"); return false; }
+            if(codigo==""){ app.dialog.alert("Você precisa informar o código do seu cartão!","Aviso"); return false; }
+
+            var app_usuario_id = window.localStorage.getItem('app_usuario_id');
+
+            $.post('http://capsulas4u.com.br/app_api/minha-carteira-cadastro.php', { id_usuario:app_usuario_id, bandeira:bandeira, numero:numero, nome:nome, validade:validade, codigo:codigo }, function (data) {
+                mainView.router.navigate("/minha-carteira-novo-obrigado/");
+            });
+
         });
     }
 
