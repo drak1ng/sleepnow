@@ -26,6 +26,9 @@ var app = new Framework7({
             path: '/central-ajuda/',
             url: 'central-ajuda.html',
         },{
+            path: '/central-ajuda-categorias/',
+            url: 'central-ajuda-categorias.html',
+        },{
             path: '/central-ajuda-interna/',
             url: 'central-ajuda-interna.html',
         },{
@@ -360,6 +363,11 @@ $$(document).on('page:init', function (e) {
 
     // Script Tela - Esqueci minha senha
     if(e.detail.el.dataset.page=="central-ajuda"){
+
+    }
+
+    // Script Tela - Esqueci minha senha
+    if(e.detail.el.dataset.page=="central-ajuda-categoria"){
         $.get("http://capsulas4u.com.br/app_api/central-ajuda.php", function(data){
             var conteudo = JSON.parse(data);
             var retorno = "";
@@ -369,7 +377,7 @@ $$(document).on('page:init', function (e) {
             }
             retorno += '<div style="clear:both;"></div>';
 
-            $("#central-ajuda-content").html(retorno);
+            $("#central-ajuda-categoria-content").html(retorno);
 
             $(".central-ajuda-item").click(function(){
                 var id = $(this).attr('rel');
