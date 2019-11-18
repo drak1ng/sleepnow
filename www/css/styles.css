@@ -330,6 +330,34 @@ body {
     font-size:17px;
 }
 
+.minha-carteira-item {
+    border: 1px solid #CCC;
+    border-radius:6px;
+    margin:5px;
+    padding:10px;
+}
+
+.minha-carteira-item-bandeira {
+    width:76px;
+    height:46px;
+    float:left;
+}
+
+.minha-carteira-item-numero {
+    margin-left:90px;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.minha-carteira-item-validade {
+    float: left;
+    margin:0px 30px 0px 10px;
+}
+
+.minha-carteira-item-nome {
+    float: left;
+}
+
 
 
 :root {

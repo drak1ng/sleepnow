@@ -412,7 +412,26 @@ $$(document).on('page:init', function (e) {
 
     // Script Tela - Esqueci minha senha
     if(e.detail.el.dataset.page=="minha-carteira"){
-        
+        var app_usuario_id = window.localStorage.getItem('app_usuario_id');
+
+        $.get("http://capsulas4u.com.br/app_api/minha-carteira.php", { id_usuario:app_usuario_id }, function(data){
+
+            var conteudo = JSON.parse(data);
+            var retorno = "";
+            var bandeira = "";
+
+            for (var j = 0; j < conteudo.length; j++) {
+                if(conteudo[j]['bandeira']=="visa"){ bandeira="cartao_visa.png"; }
+                if(conteudo[j]['bandeira']=="master"){ bandeira="cartao_master.png"; }
+                if(conteudo[j]['bandeira']=="american"){ bandeira="cartao_american.png"; }
+                if(conteudo[j]['bandeira']=="dinners"){ bandeira="cartao_dinners.png"; }
+
+                retorno += '<div class="minha-carteira-item"><div class="minha-carteira-item-bandeira" style="background-image:url(img/'+bandeira+');"></div><div class="minha-carteira-item-numero">•••• •••• •••• '+conteudo[j]['cartao']+'</div><div class="minha-carteira-item-validade">'+conteudo[j]['validade']+'</div><div class="minha-carteira-item-nome">'+conteudo[j]['nome']+'</div><div style="clear:both;"></div></div>';
+            }
+
+            $("#conteudo-minha-carteira").html(retorno);
+
+        });
     }
 
     // Script Tela - Esqueci minha senha
