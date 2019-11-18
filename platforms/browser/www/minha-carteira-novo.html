@@ -17,7 +17,16 @@
             <div style="width:280px; text-align:center;">
                 <br><br><br>
                 <center><span style="color:#4c359c; font-size:100px;"><i class="fal fa-credit-card-front"></i></span></center>
-                <br>
+                <br><br>
+                    <div class="cartoes">
+                        <div class="cartoes-item" style="background-image:url(img/cartao_visa.png);"></div>
+                        <div class="cartoes-item" style="background-image:url(img/cartao_master.png);"></div>
+                        <div class="cartoes-item" style="background-image:url(img/cartao_american.png);"></div>
+                        <div class="cartoes-item" style="background-image:url(img/cartao_dinners.png);"></div>
+                        <div style="clear:both;"></div>
+                    </div>
+                <br><br>
+                <input type="hidden" value="" id="minha-carteira-novo-bandeira" />
                 <input type="tel" class="campo" placeholder="Número do Cartão" id="minha-carteira-novo-numero" />
                 <input type="text" class="campo" placeholder="Nome Completo" id="minha-carteira-novo-nome" />
                 <input type="tel" class="campo" placeholder="Validade" id="minha-carteira-novo-validade" />
@@ -28,6 +37,9 @@
         <style>
             .carteira-bt-acessar               { text-align:center; color:#FFFFFF; font-weight:bold; font-size:13px; background:#4c359c; border-radius:60px; padding:10px 0px; margin:10px; margin-bottom:30px; }
             .campo                          { width:calc(100% - 20px) !important; background:#FFF !important; color:#000 !important; border:1px solid #CCC !important; border-radius:60px !important; padding:10px !important; margin:5px 10px !important; font-size:13px !important; }
+
+            .cartoes                        { width:296px; margin:0px auto; }
+            .cartoes-item                   { width:60px; height:36px; border:2px solid #FFF; margin:5px; border-radius:5px; float:left; background:center center none; background-size:cover; -webkit-box-shadow: 0 1px 8px 0 rgba(0,0,0,0.1); box-shadow: 0 1px 8px 0 rgba(0,0,0,0.1); }
         </style>
     </div>
 </div>

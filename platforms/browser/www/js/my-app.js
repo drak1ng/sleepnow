@@ -415,6 +415,13 @@ $$(document).on('page:init', function (e) {
     // Script Tela - Esqueci minha senha
     if(e.detail.el.dataset.page=="minha-carteira-novo"){
         $('#minha-carteira-novo-validade').mask('00/0000');
+
+        $('.cartoes-item').click(function(){
+            var cartao = $(this).attr('rel');
+            $('#minha-carteira-novo-bandeira').val(cartao);
+            $('.cartoes-item').css("border-color","#FFF");
+            $(this).css("border-color","#55C763");
+        });
     }
 
 
