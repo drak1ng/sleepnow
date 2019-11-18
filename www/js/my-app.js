@@ -40,8 +40,10 @@ var app = new Framework7({
         },{
             path: '/minha-carteira-novo/',
             url: 'minha-carteira-novo.html',
+        },{
+            path: '/promocoes/',
+            url: 'promocoes.html',
         },
-        
     ],
     statusbar: {
       iosOverlaysWebView: false,
@@ -64,6 +66,7 @@ $$(document).on('deviceready', function() {
     var app_usuario_nome = window.localStorage.getItem('app_usuario_nome');
     var app_usuario_imagem = window.localStorage.getItem('app_usuario_imagem');
     var app_usuario_email = window.localStorage.getItem('app_usuario_email');
+    var app_usuario_qtd_cartao = parseInt(window.localStorage.getItem('app_usuario_qtd_cartao'));
 
     console.log("Device is ready!");
     console.log("Id user: "+app_usuario_id);
@@ -76,8 +79,14 @@ $$(document).on('deviceready', function() {
         }else{
             $$(".lateral-usuario-info-nome").html(app_usuario_nome);
             $$(".lateral-usuario-info-email").html(app_usuario_email);
-            mainView.router.navigate("/home/");
             $('#toolbar-home').show();
+
+            if(app_usuario_qtd_cartao>0){
+                mainView.router.navigate("/home/");
+            }else{
+                mainView.router.navigate("/minha-carteira-novo/");
+                console.log("CADASTRAR CARTAO");
+            }
         }
     }, 3450);
     
@@ -154,6 +163,16 @@ $$(document).on('page:init', function (e) {
     // Script Tela - Home
     if(e.detail.el.dataset.page=="home"){
         $('#toolbar-home').show();
+        
+        var app_usuario_qtd_cartao = parseInt(window.localStorage.getItem('app_usuario_qtd_cartao'));
+
+        if(app_usuario_qtd_cartao==0){
+            setTimeout(() => {
+                mainView.router.navigate("/minha-carteira-novo/");
+                console.log("CADASTRAR CARTAO - "+app_usuario_qtd_cartao);
+            }, 450);
+            
+        }
     }
 
     
@@ -203,6 +222,7 @@ $$(document).on('page:init', function (e) {
                                 window.localStorage.setItem('app_usuario_nome',retorno[1]);
                                 window.localStorage.setItem('app_usuario_imagem',retorno[2]);
                                 window.localStorage.setItem('app_usuario_email',retorno[3]);
+                                window.localStorage.setItem('app_usuario_qtd_cartao',retorno[4]);
                 
                                 $$(".lateral-usuario-info-nome").html(retorno[1]);
                                 $$(".lateral-usuario-info-email").html(retorno[3]);
@@ -249,6 +269,7 @@ $$(document).on('page:init', function (e) {
                 window.localStorage.setItem('app_usuario_nome',retorno[1]);
                 window.localStorage.setItem('app_usuario_imagem',retorno[2]);
                 window.localStorage.setItem('app_usuario_email',retorno[3]);
+                window.localStorage.setItem('app_usuario_qtd_cartao',retorno[4]);
 
                 $$(".lateral-usuario-info-nome").html(retorno[1]);
                 $$(".lateral-usuario-info-email").html(retorno[3]);
@@ -298,6 +319,7 @@ $$(document).on('page:init', function (e) {
                 window.localStorage.setItem('app_usuario_nome',retorno[1]);
                 window.localStorage.setItem('app_usuario_imagem',retorno[2]);
                 window.localStorage.setItem('app_usuario_email',retorno[3]);
+                window.localStorage.setItem('app_usuario_qtd_cartao',retorno[4]);
 
                 $$(".lateral-usuario-info-nome").html(retorno[1]);
                 $$(".lateral-usuario-info-email").html(retorno[3]);
