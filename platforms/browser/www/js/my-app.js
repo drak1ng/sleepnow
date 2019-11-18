@@ -443,6 +443,7 @@ $$(document).on('page:init', function (e) {
 
             $.post('http://capsulas4u.com.br/app_api/minha-carteira-cadastro.php', { id_usuario:app_usuario_id, bandeira:bandeira, numero:numero, nome:nome, validade:validade, codigo:codigo }, function (data) {
                 mainView.router.navigate("/minha-carteira-novo-obrigado/");
+                window.localStorage.setItem('app_usuario_qtd_cartao',1);
             });
 
         });
