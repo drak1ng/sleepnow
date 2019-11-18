@@ -35,6 +35,9 @@ var app = new Framework7({
             path: '/central-ajuda-telefone/',
             url: 'central-ajuda-telefone.html',
         },{
+            path: '/promocoes/',
+            url: 'promocoes.html',
+        },{
             path: '/historico-pagamento/',
             url: 'historico-pagamento.html',
         },{
