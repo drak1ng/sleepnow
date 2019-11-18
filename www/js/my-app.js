@@ -32,6 +32,9 @@ var app = new Framework7({
             path: '/central-ajuda-interna/',
             url: 'central-ajuda-interna.html',
         },{
+            path: '/central-ajuda-telefone/',
+            url: 'central-ajuda-telefone.html',
+        },{
             path: '/historico-pagamento/',
             url: 'historico-pagamento.html',
         },{
@@ -387,6 +390,15 @@ $$(document).on('page:init', function (e) {
                 window.localStorage.setItem('app_ajuda_nome',partes[1]);
                 mainView.router.navigate("/central-ajuda-interna/");
             });
+
+        });
+    }
+
+    // Script Tela - Esqueci minha senha
+    if(e.detail.el.dataset.page=="central-ajuda-telefone"){
+        $.get("http://capsulas4u.com.br/app_api/central-ajuda-telefone.php", function(data){
+
+            $("#central-ajuda-telefone-content").html(data);
 
         });
     }
